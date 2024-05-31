@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+    <!-- Register form -->
+    <h1>{% blocktranslate %}Register a new account.{% endblocktranslate %}</h1>
+    <p>{% blocktranslate %}Already have an account? {% endblocktranslate %}<a href="{% url 'users:login' %}">{% blocktranslate %}Log in{% endblocktranslate %}</a>.</p>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-error">{{ form.non_field_errors }}</div>
+        {% for field in form %}
+            <p><label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}:</label> {{ field }} </p>
+            <div class="form-error">{{ field.errors }}</div>
+        {% endfor %}
+        <p><button type="submit">{% blocktranslate %}Register{% endblocktranslate %}</button></p>
+    </form>
+{% endblock content %}

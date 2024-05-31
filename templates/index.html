@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+    <!-- Home page -->
+    <h1>{% blocktranslate %}Hello! My name is Alen.{% endblocktranslate %}</h1>
+    <blockquote>
+        <p>{% blocktranslate %}I am a qualified civil engineer with many years of experience in the construction of industrial and public buildings and structures. Recently, I have been enthusiastically learning the Python programming language and the Django framework. This project is my educational endeavor, my first attempt to create something that I hope will be useful for others. I plan to continue developing, modifying, and enhancing it with new features.{% endblocktranslate %}</p>
+        {% if not user.is_authenticated %}
+            <p>{% blocktranslate %}Please register to be able to save and print your Construction Financing Schedules.{% endblocktranslate %}</p>
+            <p>{% blocktranslate %}Register {% endblocktranslate %}<a href="{% url 'users:register' %}">{% blocktranslate %}here{% endblocktranslate %}</a>{% blocktranslate %} or login {% endblocktranslate %}<a href="{% url 'users:login' %}">{% blocktranslate %} here{% endblocktranslate %}</a></p>
+        {% endif %}
+        <p>{% blocktranslate %}Link to the project on GitHub: {% endblocktranslate %}<a href="https://github.com/abaybula/constr_fin">{% blocktranslate %}Construction Financing Schedules{% endblocktranslate %}</a></p>
+        <p>{% blocktranslate %}I would appreciate any feedback: {% endblocktranslate %}<a href="mailto:abaybula@gmail.com"> abaybula@gmail.com</a></p>
+    </blockquote>
+{% endblock content %}

@@ -1,0 +1,65 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags -->
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"/>
+    <!-- Pico CSS -->
+    <link rel="stylesheet" href="{% static 'css/pico.min.css' %}" />
+    <title>{% blocktranslate %}Construction Financing Schedule{% endblocktranslate %}</title>
+</head>
+<body>
+<header class="container">
+    <!-- Change language -->
+    <form action="{% url 'set_language' %}" method="post">
+        <table>
+            {% csrf_token %}
+            <tr>
+                <td><h3>{% blocktranslate %}Construction Financing Schedule{% endblocktranslate %}</h3></td>
+                <td><input name="next" type="hidden" value="{{ redirect_to }}">
+                    <select name="language">
+                        {% get_current_language as LANGUAGE_CODE %}
+                        {% get_available_languages as LANGUAGES %}
+                        {% for lang in LANGUAGES %}
+                            <option value="{{ lang.0 }}"{% if lang.0 == LANGUAGE_CODE %} selected{% endif %}>
+                                {{ lang.1 }}
+                            </option>
+                        {% endfor %}
+                    </select></td>
+                <td><input type="submit" value="{% blocktranslate %}Change{% endblocktranslate %}"></td>
+            </tr>
+        </table>
+    </form>
+    <div class="grid">
+        <!-- Add links to other pages -->
+        <a href="{% url 'index' %}">{% blocktranslate %}Home page{% endblocktranslate %}</a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'positions_list' user.id %}">{% blocktranslate %}List of positions{% endblocktranslate %}</a>
+                <a href="{% url 'schedule' user.id %}">{% blocktranslate %}Schedule{% endblocktranslate %}</a>
+                <a href="{% url 'users:profile' %}">{% blocktranslate %}User:{% endblocktranslate %} {{ user.get_username }}</a>
+                <form id="logout-form" method="post" action="{% url 'users:logout' %}">
+                        {% csrf_token %}
+                    <button type="submit">{% blocktranslate %}Logout{% endblocktranslate %}</button>
+                    </form>
+            {% else %}
+                <a href="{% url 'users:login' %}?next={{ request.path }}">{% blocktranslate %}Login{% endblocktranslate %}</a>
+                <a href="{% url 'users:register' %}">{% blocktranslate %}Register{% endblocktranslate %}</a>
+            {% endif %}
+    </div>
+</header>
+{% block main %}
+<main class="container">
+{% block content %}
+{% endblock content %}
+</main>
+{% endblock main %}
+<footer class="container">
+    <hr/>
+    <!-- Footer -->
+    <cite>Developed by Alen Baibula <a href="https://linkedin.com/in/alen-baibula">(Linkedin)</a>. Code licensed <a href="https://github.com/abaybula/constr_fin/blob/main/LICENSE">MIT</a>. Currently version <a href="https://github.com/abaybula/constr_fin">0.1.0.</a></cite>
+</footer>
+</body>
+</html>

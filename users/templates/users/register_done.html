@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+    <!-- Registration successful template -->
+    <h1>{% blocktranslate %}Registration successful{% endblocktranslate %}</h1>
+    <p>{% blocktranslate %}You can now {% endblocktranslate %}<a href="{% url 'users:login' %}">{% blocktranslate %}log in{% endblocktranslate %}</a>.</p>
+{% endblock content %}

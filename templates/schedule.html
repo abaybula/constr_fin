@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block main %}
+    <main class="container-fluid">
+{% block content %}
+    <!-- Schedule -->
+    <h1>{% blocktranslate %}Schedule{% endblocktranslate %}</h1>
+    <!-- Schedule image -->
+    {% if schedule_image %}
+        <p><img src="data:image/png;base64,{{ schedule_image }}" alt="Schedule"></p>
+        <!-- Download PDF button -->
+        <form method="get">
+            <p>
+                <button type="submit" name="download_pdf" style="width: 15%">{% blocktranslate %}Download{% endblocktranslate %} PDF
+                </button>
+            </p>
+        </form>
+    {% else %}
+        <p>{% blocktranslate %}No schedule available.{% endblocktranslate %}</p>
+    {% endif %}
+{% endblock content %}
+    </main>
+{% endblock main %}
