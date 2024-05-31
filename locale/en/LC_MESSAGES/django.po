@@ -1,0 +1,449 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-05-25 10:40+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: schedule/forms.py:13
+msgid "Other name"
+msgstr ""
+
+#: schedule/forms.py:21
+msgid "Preparatory works"
+msgstr ""
+
+#: schedule/forms.py:22
+msgid "Foundation"
+msgstr ""
+
+#: schedule/forms.py:23
+msgid "Monolithic works"
+msgstr ""
+
+#: schedule/forms.py:24
+msgid "Masonry works"
+msgstr ""
+
+#: schedule/forms.py:25
+msgid "Windows"
+msgstr ""
+
+#: schedule/forms.py:26
+msgid "Roof"
+msgstr ""
+
+#: schedule/forms.py:27
+msgid "Doors"
+msgstr ""
+
+#: schedule/forms.py:28
+msgid "Decoration"
+msgstr ""
+
+#: schedule/forms.py:29
+msgid "Ebbs, eaves, covers"
+msgstr ""
+
+#: schedule/forms.py:30
+msgid "Metal products"
+msgstr ""
+
+#: schedule/forms.py:31
+msgid "Elevators"
+msgstr ""
+
+#: schedule/forms.py:32
+msgid "Facade, insulation"
+msgstr ""
+
+#: schedule/forms.py:33
+msgid "Grounding, lightning protection"
+msgstr ""
+
+#: schedule/forms.py:34
+msgid "Internal power supply"
+msgstr ""
+
+#: schedule/forms.py:35
+msgid "Low current networks"
+msgstr ""
+
+#: schedule/forms.py:36
+msgid "Internal sewerage K1"
+msgstr ""
+
+#: schedule/forms.py:37
+msgid "Internal sewerage K2"
+msgstr ""
+
+#: schedule/forms.py:38
+msgid "Internal water supply B1"
+msgstr ""
+
+#: schedule/forms.py:39
+msgid "Gas supply, boilers"
+msgstr ""
+
+#: schedule/forms.py:40
+msgid "External power supply"
+msgstr ""
+
+#: schedule/forms.py:41
+msgid "External gas supply"
+msgstr ""
+
+#: schedule/forms.py:42
+msgid "External sewerage K1"
+msgstr ""
+
+#: schedule/forms.py:43
+msgid "External sewerage K2"
+msgstr ""
+
+#: schedule/forms.py:44
+msgid "External water supply B1"
+msgstr ""
+
+#: schedule/forms.py:45
+msgid "Improvement"
+msgstr ""
+
+#: schedule/forms.py:46
+msgid "Total expenditures"
+msgstr ""
+
+#: schedule/forms.py:47
+msgid "Other"
+msgstr ""
+
+#: schedule/forms.py:60
+msgid "Please provide a value for other name"
+msgstr ""
+
+#: schedule/forms.py:66
+msgid "End date cannot be earlier than start date."
+msgstr ""
+
+#: schedule/views.py:26 schedule/views.py:47 schedule/views.py:66
+#: schedule/views.py:82 schedule/views.py:96 schedule/views.py:115
+#: schedule/views.py:140 schedule/views.py:154
+msgid "<h1>You don't have permission to view this page</h1>"
+msgstr ""
+
+#: schedule/views.py:207 schedule/views.py:215 schedule/views.py:223
+msgid "${row['Cost']:,.0f}"
+msgstr ""
+
+#: schedule/views.py:209 schedule/views.py:218 schedule/views.py:225
+#, python-brace-format
+msgid "Error plotting cost information: {e}"
+msgstr ""
+
+#: schedule/views.py:227
+msgid "Total: ${total_cost:,.0f}"
+msgstr ""
+
+#: templates/add_construction_name.html:6 templates/positions_list.html:14
+msgid "Add construction name"
+msgstr ""
+
+#: templates/add_construction_name.html:10 templates/add_position.html:33
+#: templates/edit_construction_name.html:8 templates/edit_position.html:29
+#: users/templates/users/password_reset_confirm.html:13
+#: users/templates/users/profile.html:12
+msgid "Save"
+msgstr ""
+
+#: templates/add_position.html:6 templates/positions_list.html:49
+msgid "Add position"
+msgstr ""
+
+#: templates/add_position.html:13 templates/edit_position.html:13
+#: templates/positions_list.html:20
+msgid "Name"
+msgstr ""
+
+#: templates/add_position.html:14 templates/edit_position.html:14
+#: templates/positions_list.html:21
+msgid "Start date"
+msgstr ""
+
+#: templates/add_position.html:15 templates/edit_position.html:15
+#: templates/positions_list.html:22
+msgid "End date"
+msgstr ""
+
+#: templates/add_position.html:16 templates/edit_position.html:16
+#: templates/positions_list.html:23
+msgid "Cost"
+msgstr ""
+
+#: templates/add_position.html:35 templates/delete_construction_name.html:9
+#: templates/delete_position.html:9 templates/edit_position.html:31
+msgid "Cancel"
+msgstr ""
+
+#: templates/base.html:9 templates/base.html:17
+msgid "Construction Financing Schedule"
+msgstr ""
+
+#: templates/base.html:28
+msgid "Change"
+msgstr ""
+
+#: templates/base.html:33
+msgid "Home page"
+msgstr ""
+
+#: templates/base.html:35 templates/positions_list.html:6
+msgid "List of positions"
+msgstr ""
+
+#: templates/base.html:36 templates/schedule.html:6
+msgid "Schedule"
+msgstr ""
+
+#: templates/base.html:37
+msgid "User:"
+msgstr ""
+
+#: templates/base.html:40
+msgid "Logout"
+msgstr ""
+
+#: templates/base.html:43 users/templates/users/login.html:4
+#: users/templates/users/login.html:12
+msgid "Login"
+msgstr ""
+
+#: templates/base.html:44 users/templates/users/register.html:13
+msgid "Register"
+msgstr ""
+
+#: templates/delete_construction_name.html:4
+msgid "Delete construction name"
+msgstr ""
+
+#: templates/delete_construction_name.html:5
+msgid "Are you sure you want to delete the construction name"
+msgstr ""
+
+#: templates/delete_construction_name.html:8 templates/delete_position.html:8
+#: templates/positions_list.html:36
+msgid "Delete"
+msgstr ""
+
+#: templates/delete_position.html:4
+msgid "Delete position"
+msgstr ""
+
+#: templates/delete_position.html:5
+msgid "Are you sure you want to delete the position"
+msgstr ""
+
+#: templates/edit_construction_name.html:4
+msgid "Edit construction name"
+msgstr ""
+
+#: templates/edit_position.html:6
+msgid "Edit position"
+msgstr ""
+
+#: templates/index.html:4
+msgid "Hello! My name is Alen."
+msgstr ""
+
+#: templates/index.html:6
+msgid ""
+"I am a qualified civil engineer with many years of experience in the "
+"construction of industrial and public buildings and structures. Recently, I "
+"have been enthusiastically learning the Python programming language and the "
+"Django framework. This project is my educational endeavor, my first attempt "
+"to create something that I hope will be useful for others. I plan to "
+"continue developing, modifying, and enhancing it with new features."
+msgstr ""
+
+#: templates/index.html:8
+msgid ""
+"Please register to be able to save and print your Construction Financing "
+"Schedules."
+msgstr ""
+
+#: templates/index.html:9
+msgid "Register "
+msgstr ""
+
+#: templates/index.html:9
+msgid "here"
+msgstr ""
+
+#: templates/index.html:9
+msgid " or login "
+msgstr ""
+
+#: templates/index.html:9
+msgid " here"
+msgstr ""
+
+#: templates/index.html:11
+msgid "Link to the project on GitHub: "
+msgstr ""
+
+#: templates/index.html:11
+msgid "Construction Financing Schedules"
+msgstr ""
+
+#: templates/index.html:12
+msgid "I would appreciate any feedback: "
+msgstr ""
+
+#: templates/positions_list.html:10
+msgid "Construction name:"
+msgstr ""
+
+#: templates/positions_list.html:11
+msgid "Edit "
+msgstr ""
+
+#: templates/positions_list.html:11
+msgid "or"
+msgstr ""
+
+#: templates/positions_list.html:12
+msgid "delete "
+msgstr ""
+
+#: templates/positions_list.html:12
+msgid "construction name"
+msgstr ""
+
+#: templates/positions_list.html:35
+msgid "Edit"
+msgstr ""
+
+#: templates/positions_list.html:42
+msgid "Total cost:"
+msgstr ""
+
+#: templates/schedule.html:11
+msgid "Download"
+msgstr ""
+
+#: templates/schedule.html:16
+msgid "No schedule available."
+msgstr ""
+
+#: users/templates/users/login.html:13
+msgid "Forgot password?"
+msgstr ""
+
+#: users/templates/users/password_change_done.html:4
+msgid "Password change successful"
+msgstr ""
+
+#: users/templates/users/password_change_done.html:5
+#: users/templates/users/password_reset_complete.html:5
+msgid "You changed your password"
+msgstr ""
+
+#: users/templates/users/password_change_done.html:5
+msgid "back to profile"
+msgstr ""
+
+#: users/templates/users/password_change_form.html:4
+msgid "Password change"
+msgstr ""
+
+#: users/templates/users/password_change_form.html:12
+#: users/templates/users/profile.html:14
+msgid "Change password"
+msgstr ""
+
+#: users/templates/users/password_reset_complete.html:4
+msgid "Password is changed"
+msgstr ""
+
+#: users/templates/users/password_reset_complete.html:5
+msgid "back to login"
+msgstr ""
+
+#: users/templates/users/password_reset_confirm.html:5
+msgid "New password"
+msgstr ""
+
+#: users/templates/users/password_reset_done.html:5
+msgid ""
+"We've emailed you instructions for setting your password. If an account "
+"exists with the email you entered, you should receive them shortly."
+msgstr ""
+
+#: users/templates/users/password_reset_done.html:6
+msgid ""
+"If you don't receive an email, please make sure you've entered the address "
+"you registered with, and check your spam folder."
+msgstr ""
+
+#: users/templates/users/password_reset_email.html:2
+msgid ""
+"You're receiving this email because you requested a password reset for your "
+"user account."
+msgstr ""
+
+#: users/templates/users/password_reset_email.html:3
+msgid "Please go to the following page and choose a new password:"
+msgstr ""
+
+#: users/templates/users/password_reset_email.html:5
+msgid "Your username, in case you’ve forgotten:"
+msgstr ""
+
+#: users/templates/users/password_reset_email.html:6
+msgid "Thanks for using site!"
+msgstr ""
+
+#: users/templates/users/password_reset_form.html:4
+#: users/templates/users/password_reset_form.html:12
+msgid "Password reset"
+msgstr ""
+
+#: users/templates/users/profile.html:4
+msgid "Profile"
+msgstr ""
+
+#: users/templates/users/register.html:4
+msgid "Register a new account."
+msgstr ""
+
+#: users/templates/users/register.html:5
+msgid "Already have an account? "
+msgstr ""
+
+#: users/templates/users/register.html:5
+msgid "Log in"
+msgstr ""
+
+#: users/templates/users/register_done.html:4
+msgid "Registration successful"
+msgstr ""
+
+#: users/templates/users/register_done.html:5
+msgid "You can now "
+msgstr ""
+
+#: users/templates/users/register_done.html:5
+msgid "log in"
+msgstr ""

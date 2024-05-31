@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block main %}
+    <main class="container-fluid">
+{% block content %}
+    <h1>{% blocktranslate %}List of positions{% endblocktranslate %}</h1>
+    <form method="post">
+        {% csrf_token %}
+        <!-- Construction name -->
+        {% if construction.construction_name %}
+            <h5>{% blocktranslate %}Construction name:{% endblocktranslate %} {{ construction.construction_name }}</h5>
+            <a href="{% url 'edit_construction_name' user.id construction.id %}">{% blocktranslate %}Edit {% endblocktranslate %}</a>{% blocktranslate %}or{% endblocktranslate %}
+            <a href="{% url 'delete_construction_name' user.id construction.id %}">{% blocktranslate %}delete {% endblocktranslate %}</a>{% blocktranslate %}construction name{% endblocktranslate %}
+            {% else %}
+            <h5><a href="{% url 'add_construction_name' user.id %}">{% blocktranslate %}Add construction name{% endblocktranslate %}</a></h5>
+            {% endif %}
+        <table>
+            <!-- Positions list table header -->
+            <thead>
+            <tr>
+                <th>№</th>
+                <th>{% blocktranslate %}Name{% endblocktranslate %}</th>
+                <th>{% blocktranslate %}Start date{% endblocktranslate %}</th>
+                <th>{% blocktranslate %}End date{% endblocktranslate %}</th>
+                <th>{% blocktranslate %}Cost{% endblocktranslate %}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Positions list table rows with edit and delete links -->
+            {% for position in positions %}
+                <tr data-position-id="{{ position.id }}">
+                    <td>{{ position.order }}</td>
+                    <td>{% trans position.name %}</td>
+                    <td>{{ position.start_date }}</td>
+                    <td>{{ position.end_date }}</td>
+                    <td>{{ position.cost }}</td>
+                    <td>
+                        <a href="{% url 'edit_position'  user.id position.id %}">{% blocktranslate %}Edit{% endblocktranslate %}</a>
+                        <a href="{% url 'delete_position' user.id position.id %}">{% blocktranslate %}Delete{% endblocktranslate %}</a>
+                    </td>
+                </tr>
+            {% endfor %}
+                <!-- Total cost row -->
+                <tr>
+                    <td></td>
+                    <td>{% blocktranslate %}Total cost:{% endblocktranslate %}</td>
+                    <td></td>
+                    <td></td>
+                    <td>{{ total_cost }}</td>
+                </tr>
+            <tbody>
+        </table>
+        <h5><a href="{% url 'add_position' user.id %}">{% blocktranslate %}Add position{% endblocktranslate %}</a></h5>
+    </form>
+{% endblock content %}
+    </main>
+{% endblock main %}
