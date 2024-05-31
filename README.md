@@ -5,11 +5,11 @@ positions and their costs over time using a financing schedule.
 
 Positions list page example:
 
-![positions_list](https://github.com/abaybula/constr_fin/assets/6695355/97ea17b4-bef9-4928-a3c3-4e79153361fa)
+![positions_list](https://github.com/abaybula/constr_fin/assets/6695355/f5d96d92-a7e8-48b2-8495-23551f229e8f)
 
 Financing Schedule page example:
 
-![schedule](https://github.com/abaybula/constr_fin/assets/6695355/777f192a-52e2-4058-972c-81331d07c9d7)
+![schedule](https://github.com/abaybula/constr_fin/assets/6695355/5766477a-edfe-4609-ae27-d7da9fa86306)
 
 ## Requirements
 
