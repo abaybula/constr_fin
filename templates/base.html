@@ -37,8 +37,7 @@
         <!-- Add links to other pages -->
         <a href="{% url 'index' %}">{% blocktranslate %}Home page{% endblocktranslate %}</a>
             {% if user.is_authenticated %}
-                <a href="{% url 'positions_list' user.id %}">{% blocktranslate %}List of positions{% endblocktranslate %}</a>
-                <a href="{% url 'schedule' user.id %}">{% blocktranslate %}Schedule{% endblocktranslate %}</a>
+                <a href="{% url 'constructions_list' user.id %}">{% blocktranslate %}Constructions{% endblocktranslate %}</a>
                 <a href="{% url 'users:profile' %}">{% blocktranslate %}User:{% endblocktranslate %} {{ user.get_username }}</a>
                 <form id="logout-form" method="post" action="{% url 'users:logout' %}">
                         {% csrf_token %}
@@ -59,7 +58,7 @@
 <footer class="container">
     <hr/>
     <!-- Footer -->
-    <cite>Developed by Alen Baibula <a href="https://linkedin.com/in/alen-baibula">(Linkedin)</a>. Code licensed <a href="https://github.com/abaybula/constr_fin/blob/main/LICENSE">MIT</a>. Currently version <a href="https://github.com/abaybula/constr_fin">0.1.0.</a></cite>
+    <cite>Developed by Alen Baibula <a href="https://linkedin.com/in/alen-baibula">(Linkedin)</a>. Code licensed <a href="https://github.com/abaybula/constr_fin/blob/development/LICENSE">MIT</a>. Currently version <a href="https://github.com/abaybula/constr_fin">0.1.0.</a></cite>
 </footer>
 </body>
 </html>

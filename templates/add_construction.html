@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block main %}
+    <!-- Add construction name -->
+    <main class="container-fluid">
+        {% block content %}
+            <h1>{% blocktranslate %}Add construction{% endblocktranslate %}</h1>
+            <form method="post">
+                {% csrf_token %}
+                {% if form.non_field_errors %}
+                    <div class="alert alert-danger">
+                        {{ form.non_field_errors }}
+                    </div>
+                {% endif %}
+                {{ form.as_p }}
+                <button type="submit" style="width: 20%">{% blocktranslate %}Save{% endblocktranslate %}</button>
+                <a href="{% url 'constructions_list' user.id %}">{% blocktranslate %}Cancel{% endblocktranslate %}</a>
+            </form>
+        {% endblock content %}
+    </main>
+{% endblock main %}

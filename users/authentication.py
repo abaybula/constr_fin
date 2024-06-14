@@ -4,7 +4,13 @@ from django.contrib.auth.backends import BaseBackend
 
 class EmailAuthBackend(BaseBackend):
     """
-    Authentication backend for email-based authentication.
+    Authenticates a user based on their email address.
+    Parameters:
+        None
+    Returns:
+        User: The authenticated user object.
+    Raises:
+        None
     """
     def authenticate(self, request, username=None, password=None, **kwargs):
         """

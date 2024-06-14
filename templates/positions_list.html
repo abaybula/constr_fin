@@ -5,15 +5,13 @@
 {% block content %}
     <h1>{% blocktranslate %}List of positions{% endblocktranslate %}</h1>
     <form method="post">
-        {% csrf_token %}
         <!-- Construction name -->
-        {% if construction.construction_name %}
-            <h5>{% blocktranslate %}Construction name:{% endblocktranslate %} {{ construction.construction_name }}</h5>
-            <a href="{% url 'edit_construction_name' user.id construction.id %}">{% blocktranslate %}Edit {% endblocktranslate %}</a>{% blocktranslate %}or{% endblocktranslate %}
-            <a href="{% url 'delete_construction_name' user.id construction.id %}">{% blocktranslate %}delete {% endblocktranslate %}</a>{% blocktranslate %}construction name{% endblocktranslate %}
-            {% else %}
-            <h5><a href="{% url 'add_construction_name' user.id %}">{% blocktranslate %}Add construction name{% endblocktranslate %}</a></h5>
-            {% endif %}
+        {% if construction %}
+            <div class="grid">
+                <h5>{% blocktranslate %}Construction name:{% endblocktranslate %} {{ construction }}</h5>
+                <h5><a href="{% url 'schedule' user.id construction.id %}"> {% blocktranslate %}Schedule{% endblocktranslate %}</a></h5>
+            </div>
+        {% endif %}
         <table>
             <!-- Positions list table header -->
             <thead>
@@ -35,8 +33,8 @@
                     <td>{{ position.end_date }}</td>
                     <td>{{ position.cost }}</td>
                     <td>
-                        <a href="{% url 'edit_position'  user.id position.id %}">{% blocktranslate %}Edit{% endblocktranslate %}</a>
-                        <a href="{% url 'delete_position' user.id position.id %}">{% blocktranslate %}Delete{% endblocktranslate %}</a>
+                        <a href="{% url 'edit_position'  user.id construction.id position.id %}">{% blocktranslate %}Edit{% endblocktranslate %}</a>
+                        <a href="{% url 'delete_position' user.id construction.id position.id %}">{% blocktranslate %}Delete{% endblocktranslate %}</a>
                     </td>
                 </tr>
             {% endfor %}
@@ -50,7 +48,7 @@
                 </tr>
             <tbody>
         </table>
-        <h5><a href="{% url 'add_position' user.id %}">{% blocktranslate %}Add position{% endblocktranslate %}</a></h5>
+        <h5><a href="{% url 'add_position' user.id construction.id %}">{% blocktranslate %}Add position{% endblocktranslate %}</a></h5>
     </form>
 {% endblock content %}
     </main>

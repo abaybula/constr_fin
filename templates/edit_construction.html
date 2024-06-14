@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+    <!-- Edit construction name -->
+    <h1>{% blocktranslate %}Edit construction name{% endblocktranslate %}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {% if form.non_field_errors %}
+            <div class="alert alert-danger">
+                {{ form.non_field_errors }}
+            </div>
+        {% endif %}
+        {{ form.as_p }}
+        <input type="submit" style="width: 20%" value="{% blocktranslate %}Save{% endblocktranslate %}">
+        <a href="{% url 'constructions_list' user.id %}">{% blocktranslate %}Cancel{% endblocktranslate %}</a>
+    </form>
+{% endblock content %}
