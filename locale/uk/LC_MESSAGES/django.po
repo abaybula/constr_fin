@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-25 10:45+0300\n"
+"POT-Creation-Date: 2024-06-13 11:47+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,248 +21,258 @@ msgstr ""
 "100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
 "(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
 
-#: schedule/forms.py:13
+#: schedule/forms.py:35
 msgid "Other name"
 msgstr "Інша назва"
 
-#: schedule/forms.py:21
+#: schedule/forms.py:43
 msgid "Preparatory works"
 msgstr "Підготовчі роботи"
 
-#: schedule/forms.py:22
+#: schedule/forms.py:44
 msgid "Foundation"
 msgstr "Фундамент"
 
-#: schedule/forms.py:23
+#: schedule/forms.py:45
 msgid "Monolithic works"
 msgstr "Монолітні роботи"
 
-#: schedule/forms.py:24
+#: schedule/forms.py:46
 msgid "Masonry works"
 msgstr "Кладочні роботи"
 
-#: schedule/forms.py:25
+#: schedule/forms.py:47
 msgid "Windows"
 msgstr "Вікна"
 
-#: schedule/forms.py:26
+#: schedule/forms.py:48
 msgid "Roof"
 msgstr "Дах"
 
-#: schedule/forms.py:27
+#: schedule/forms.py:49
 msgid "Doors"
 msgstr "Двері"
 
-#: schedule/forms.py:28
+#: schedule/forms.py:50
 msgid "Decoration"
 msgstr "Оздоблення"
 
-#: schedule/forms.py:29
+#: schedule/forms.py:51
 msgid "Ebbs, eaves, covers"
 msgstr "Відливи, карнизи, покриття"
 
-#: schedule/forms.py:30
+#: schedule/forms.py:52
 msgid "Metal products"
 msgstr "Металеві вироби"
 
-#: schedule/forms.py:31
+#: schedule/forms.py:53
 msgid "Elevators"
 msgstr "Ліфти"
 
-#: schedule/forms.py:32
+#: schedule/forms.py:54
 msgid "Facade, insulation"
 msgstr "Фасад, утеплення"
 
-#: schedule/forms.py:33
+#: schedule/forms.py:55
 msgid "Grounding, lightning protection"
 msgstr "Заземлення, блискавкозахист"
 
-#: schedule/forms.py:34
+#: schedule/forms.py:56
 msgid "Internal power supply"
 msgstr "Внутрішнє електропостачання"
 
-#: schedule/forms.py:35
+#: schedule/forms.py:57
 msgid "Low current networks"
 msgstr "Слабкострумові мережі"
 
-#: schedule/forms.py:36
+#: schedule/forms.py:58
 msgid "Internal sewerage K1"
 msgstr "Внутрішня каналізація К1"
 
-#: schedule/forms.py:37
+#: schedule/forms.py:59
 msgid "Internal sewerage K2"
 msgstr "Внутрішня каналізація К2"
 
-#: schedule/forms.py:38
+#: schedule/forms.py:60
 msgid "Internal water supply B1"
 msgstr "Внутрішнє водопостачання B1"
 
-#: schedule/forms.py:39
+#: schedule/forms.py:61
 msgid "Gas supply, boilers"
 msgstr "Газопостачання, котли"
 
-#: schedule/forms.py:40
+#: schedule/forms.py:62
 msgid "External power supply"
 msgstr "Зовнішнє електропостачання"
 
-#: schedule/forms.py:41
+#: schedule/forms.py:63
 msgid "External gas supply"
 msgstr "Зовнішнє газопостачання"
 
-#: schedule/forms.py:42
+#: schedule/forms.py:64
 msgid "External sewerage K1"
 msgstr "Зовнішня каналізація К1"
 
-#: schedule/forms.py:43
+#: schedule/forms.py:65
 msgid "External sewerage K2"
 msgstr "Зовнішня каналізація К2"
 
-#: schedule/forms.py:44
+#: schedule/forms.py:66
 msgid "External water supply B1"
 msgstr "Зовнішнє водопостачання B1"
 
-#: schedule/forms.py:45
+#: schedule/forms.py:67
 msgid "Improvement"
 msgstr "Благоустрій"
 
-#: schedule/forms.py:46
+#: schedule/forms.py:68
 msgid "Total expenditures"
 msgstr "Загальновиробничі витрати"
 
-#: schedule/forms.py:47
+#: schedule/forms.py:69
 msgid "Other"
 msgstr "Інше"
 
-#: schedule/forms.py:60
+#: schedule/forms.py:93
+msgid "Position number must be unique for this construction."
+msgstr "Номер позиції має бути унікальним для цього будівництва."
+
+#: schedule/forms.py:96
 msgid "Please provide a value for other name"
 msgstr "Будь ласка, вкажіть значення для іншої назви"
 
-#: schedule/forms.py:66
+#: schedule/forms.py:99
+msgid "Position name must be unique for this construction."
+msgstr "Назва позиції має бути унікальною для цього будівництва."
+
+#: schedule/forms.py:104
 msgid "End date cannot be earlier than start date."
 msgstr "Дата закінчення не може бути раніше дати початку."
 
-#: schedule/views.py:26 schedule/views.py:47 schedule/views.py:66
-#: schedule/views.py:82 schedule/views.py:96 schedule/views.py:115
-#: schedule/views.py:140 schedule/views.py:154
+#: schedule/views.py:34 schedule/views.py:54 schedule/views.py:67
+#: schedule/views.py:92 schedule/views.py:107 schedule/views.py:133
+#: schedule/views.py:146 schedule/views.py:162 schedule/views.py:190
+#: schedule/views.py:204 schedule/views.py:230 schedule/views.py:246
+#: schedule/views.py:273 schedule/views.py:287 schedule/views.py:303
 msgid "<h1>You don't have permission to view this page</h1>"
 msgstr "<h1>Ви не маєте дозволу на перегляд цієї сторінки</h1>"
 
-#: schedule/views.py:209 schedule/views.py:218 schedule/views.py:225
-#, python-brace-format
-msgid "Error plotting cost information: {e}"
-msgstr "Помилка побудови інформації про вартість: {e}"
+#: templates/add_construction.html:7 templates/constructions_list.html:18
+msgid "Add construction"
+msgstr "Додати будівництво"
 
-#: templates/add_construction_name.html:6 templates/positions_list.html:14
-msgid "Add construction name"
-msgstr "Додати назву будівництва"
-
-#: templates/add_construction_name.html:10 templates/add_position.html:33
-#: templates/edit_construction_name.html:8 templates/edit_position.html:29
+#: templates/add_construction.html:16 templates/add_position.html:40
+#: templates/edit_construction.html:14 templates/edit_position.html:39
 #: users/templates/users/password_reset_confirm.html:13
-#: users/templates/users/profile.html:12
+#: users/templates/users/profile.html:13
 msgid "Save"
 msgstr "Зберегти"
 
-#: templates/add_position.html:6 templates/positions_list.html:49
+#: templates/add_construction.html:17 templates/add_position.html:42
+#: templates/delete_construction.html:15 templates/delete_position.html:15
+#: templates/edit_construction.html:15 templates/edit_position.html:41
+msgid "Cancel"
+msgstr "Скасувати"
+
+#: templates/add_position.html:7 templates/positions_list.html:51
 msgid "Add position"
 msgstr "Додати позицію"
 
-#: templates/add_position.html:13 templates/edit_position.html:13
+#: templates/add_position.html:19 templates/edit_position.html:19
 #: templates/positions_list.html:20
 msgid "Name"
 msgstr "Назва"
 
-#: templates/add_position.html:14 templates/edit_position.html:14
+#: templates/add_position.html:20 templates/edit_position.html:20
 #: templates/positions_list.html:21
 msgid "Start date"
 msgstr "Дата початку"
 
-#: templates/add_position.html:15 templates/edit_position.html:15
+#: templates/add_position.html:21 templates/edit_position.html:21
 #: templates/positions_list.html:22
 msgid "End date"
 msgstr "Дата закінчення"
 
-#: templates/add_position.html:16 templates/edit_position.html:16
+#: templates/add_position.html:22 templates/edit_position.html:22
 #: templates/positions_list.html:23
 msgid "Cost"
 msgstr "Вартість"
 
-#: templates/add_position.html:35 templates/delete_construction_name.html:9
-#: templates/delete_position.html:9 templates/edit_position.html:31
-msgid "Cancel"
-msgstr "Скасувати"
-
-#: templates/base.html:9 templates/base.html:17
+#: templates/base.html:12 templates/base.html:21
 msgid "Construction Financing Schedule"
 msgstr "Графік фінансування будівництва"
 
-#: templates/base.html:28
+#: templates/base.html:32
 msgid "Change"
 msgstr "Змінити"
 
-#: templates/base.html:33
+#: templates/base.html:38
 msgid "Home page"
 msgstr "Домашня сторінка"
 
-#: templates/base.html:35 templates/positions_list.html:6
-msgid "List of positions"
-msgstr "Список позицій"
-
-#: templates/base.html:36 templates/schedule.html:6
-msgid "Schedule"
-msgstr "Графік"
-
-#: templates/base.html:37
-msgid "User:"
-msgstr "Користувач:"
-
 #: templates/base.html:40
+msgid "Constructions"
+msgstr "Будівництва"
+
+#: templates/base.html:41
+msgid "User:"
+msgstr "Користувач: "
+
+#: templates/base.html:44
 msgid "Logout"
 msgstr "Вийти"
 
-#: templates/base.html:43 users/templates/users/login.html:4
-#: users/templates/users/login.html:12
+#: templates/base.html:47 users/templates/users/login.html:5
+#: users/templates/users/login.html:13
 msgid "Login"
 msgstr "Увійти"
 
-#: templates/base.html:44 users/templates/users/register.html:13
+#: templates/base.html:48 users/templates/users/register.html:14
 msgid "Register"
 msgstr "Зареєструватися"
 
-#: templates/delete_construction_name.html:4
-msgid "Delete construction name"
-msgstr "Видалити назву будівництва"
+#: templates/constructions_list.html:5
+msgid "Constructions list"
+msgstr "Список будівництв"
 
-#: templates/delete_construction_name.html:5
-msgid "Are you sure you want to delete the construction name"
-msgstr "Ви впевнені, що хочете видалити назву будівництва?"
+#: templates/constructions_list.html:12 templates/positions_list.html:36
+msgid "Edit"
+msgstr "Редагувати"
 
-#: templates/delete_construction_name.html:8 templates/delete_position.html:8
-#: templates/positions_list.html:36
+#: templates/constructions_list.html:13 templates/delete_construction.html:14
+#: templates/delete_position.html:14 templates/positions_list.html:37
 msgid "Delete"
 msgstr "Видалити"
 
-#: templates/delete_position.html:4
+#: templates/delete_construction.html:5
+msgid "Delete construction"
+msgstr "Видалити будівництво"
+
+#: templates/delete_construction.html:6
+msgid "Are you sure you want to delete the construction "
+msgstr "Ви впевнені, що хочете видалити будівництво"
+
+#: templates/delete_position.html:5
 msgid "Delete position"
 msgstr "Видалити позицію"
 
-#: templates/delete_position.html:5
+#: templates/delete_position.html:6
 msgid "Are you sure you want to delete the position"
-msgstr "Ви впевнені, що хочете видалити позицію?"
+msgstr "Ви впевнені, що хочете видалити позицію"
 
-#: templates/edit_construction_name.html:4
+#: templates/edit_construction.html:5
 msgid "Edit construction name"
 msgstr "Редагувати назву будівництва"
 
-#: templates/edit_position.html:6
+#: templates/edit_position.html:7
 msgid "Edit position"
 msgstr "Редагувати позицію"
 
-#: templates/index.html:4
+#: templates/index.html:5
 msgid "Hello! My name is Alen."
 msgstr "Привіт! Мене звати Ален."
 
-#: templates/index.html:6
+#: templates/index.html:7
 msgid ""
 "I am a qualified civil engineer with many years of experience in the "
 "construction of industrial and public buildings and structures. Recently, I "
@@ -272,13 +282,13 @@ msgid ""
 "continue developing, modifying, and enhancing it with new features."
 msgstr ""
 "Я кваліфікований інженер-будівельник з багаторічним досвідом у будівництві "
-"промислових та громадських будівель і споруд. Нещодавно я з ентузіазмом почав "
-"вивчати мову програмування Python та фреймворк Django. Цей проект є моїм "
-"навчальним досвідом, першою спробою створити щось, що, як я сподіваюся, буде "
-"корисним для інших. Я планую продовжувати розвивати, модифікувати та "
+"промислових та громадських будівель і споруд. Нещодавно я з ентузіазмом "
+"почав вивчати мову програмування Python та фреймворк Django. Цей проект є "
+"моїм навчальним досвідом, першою спробою створити щось, що, як я сподіваюся, "
+"буде корисним для інших. Я планую продовжувати розвивати, модифікувати та "
 "покращувати його новим функціоналом."
 
-#: templates/index.html:8
+#: templates/index.html:9
 msgid ""
 "Please register to be able to save and print your Construction Financing "
 "Schedules."
@@ -286,101 +296,89 @@ msgstr ""
 "Будь ласка, зареєструйтесь, щоб мати можливість зберігати та друкувати свої "
 "графіки фінансування будівництва."
 
-#: templates/index.html:9
+#: templates/index.html:10
 msgid "Register "
 msgstr "Зареєструватися "
 
-#: templates/index.html:9
+#: templates/index.html:10
 msgid "here"
 msgstr "тут"
 
-#: templates/index.html:9
+#: templates/index.html:10
 msgid " or login "
 msgstr " або увійти "
 
-#: templates/index.html:9
+#: templates/index.html:10
 msgid " here"
 msgstr " тут"
 
-#: templates/index.html:11
+#: templates/index.html:12
 msgid "Link to the project on GitHub: "
 msgstr "Посилання на проект на GitHub: "
 
-#: templates/index.html:11
+#: templates/index.html:12
 msgid "Construction Financing Schedules"
 msgstr "Графіки фінансування будівництва"
 
-#: templates/index.html:12
+#: templates/index.html:13
 msgid "I would appreciate any feedback: "
 msgstr "Буду вдячний за будь-який відгук:"
 
-#: templates/positions_list.html:10
+#: templates/positions_list.html:6 templates/schedule.html:9
+msgid "List of positions"
+msgstr "Список позицій"
+
+#: templates/positions_list.html:11
 msgid "Construction name:"
 msgstr "Назва будівництва:"
 
-#: templates/positions_list.html:11
-msgid "Edit "
-msgstr "Редагувати "
+#: templates/positions_list.html:12 templates/schedule.html:8
+msgid "Schedule"
+msgstr "Графік"
 
-#: templates/positions_list.html:11
-msgid "or"
-msgstr "або"
-
-#: templates/positions_list.html:12
-msgid "delete "
-msgstr "видалити "
-
-#: templates/positions_list.html:12
-msgid "construction name"
-msgstr "назву будівництва"
-
-#: templates/positions_list.html:35
-msgid "Edit"
-msgstr "Редагувати"
-
-#: templates/positions_list.html:42
+#: templates/positions_list.html:44
 msgid "Total cost:"
 msgstr "Загальна вартість:"
 
-#: templates/schedule.html:11
+#: templates/schedule.html:17
 msgid "Download"
 msgstr "Завантажити"
 
-#: templates/schedule.html:16
+#: templates/schedule.html:22
 msgid "No schedule available."
 msgstr "Немає доступного графіка."
 
-#: users/templates/users/login.html:13
+#: users/templates/users/login.html:15
 msgid "Forgot password?"
 msgstr "Забули пароль?"
 
-#: users/templates/users/password_change_done.html:4
+#: users/templates/users/password_change_done.html:5
 msgid "Password change successful"
 msgstr "Зміна пароля успішна"
 
-#: users/templates/users/password_change_done.html:5
-#: users/templates/users/password_reset_complete.html:5
+#: users/templates/users/password_change_done.html:6
+#: users/templates/users/password_reset_complete.html:6
 msgid "You changed your password"
 msgstr "Ви змінили свій пароль"
 
-#: users/templates/users/password_change_done.html:5
+#: users/templates/users/password_change_done.html:6
 msgid "back to profile"
 msgstr "повернутися до профілю"
 
-#: users/templates/users/password_change_form.html:4
+#: users/templates/users/password_change_form.html:5
 msgid "Password change"
 msgstr "Зміна пароля"
 
-#: users/templates/users/password_change_form.html:12
-#: users/templates/users/profile.html:14
+#: users/templates/users/password_change_form.html:13
+#: users/templates/users/profile.html:16
 msgid "Change password"
 msgstr "Змінити пароль"
 
-#: users/templates/users/password_reset_complete.html:4
+#: users/templates/users/password_reset_complete.html:5
 msgid "Password is changed"
 msgstr "Пароль змінено"
 
-#: users/templates/users/password_reset_complete.html:5
+#: users/templates/users/password_reset_complete.html:6
 msgid "back to login"
 msgstr "повернутися до входу"
 
@@ -388,7 +386,7 @@ msgstr "повернутися до входу"
 msgid "New password"
 msgstr "Новий пароль"
 
-#: users/templates/users/password_reset_done.html:5
+#: users/templates/users/password_reset_done.html:6
 msgid ""
 "We've emailed you instructions for setting your password. If an account "
 "exists with the email you entered, you should receive them shortly."
@@ -397,7 +395,7 @@ msgstr ""
 "запис існує з введеною вами електронною адресою, ви повинні отримати їх "
 "найближчим часом."
 
-#: users/templates/users/password_reset_done.html:6
+#: users/templates/users/password_reset_done.html:7
 msgid ""
 "If you don't receive an email, please make sure you've entered the address "
 "you registered with, and check your spam folder."
@@ -405,7 +403,7 @@ msgstr ""
 "Якщо ви не отримали електронного листа, переконайтеся, що ви ввели адресу, з "
 "якою зареєструвалися, і перевірте свою папку зі спамом."
 
-#: users/templates/users/password_reset_email.html:2
+#: users/templates/users/password_reset_email.html:3
 msgid ""
 "You're receiving this email because you requested a password reset for your "
 "user account."
@@ -413,47 +411,47 @@ msgstr ""
 "Ви отримали цей електронний лист, тому що ви запросили скидання пароля для "
 "вашого облікового запису."
 
-#: users/templates/users/password_reset_email.html:3
+#: users/templates/users/password_reset_email.html:4
 msgid "Please go to the following page and choose a new password:"
 msgstr "Будь ласка, перейдіть на наступну сторінку та виберіть новий пароль:"
 
-#: users/templates/users/password_reset_email.html:5
+#: users/templates/users/password_reset_email.html:6
 msgid "Your username, in case you’ve forgotten:"
 msgstr "Ваше ім'я користувача, якщо ви його забули:"
 
-#: users/templates/users/password_reset_email.html:6
+#: users/templates/users/password_reset_email.html:7
 msgid "Thanks for using site!"
 msgstr "Дякуємо, що користуєтеся сайтом!"
 
-#: users/templates/users/password_reset_form.html:4
-#: users/templates/users/password_reset_form.html:12
+#: users/templates/users/password_reset_form.html:5
+#: users/templates/users/password_reset_form.html:13
 msgid "Password reset"
 msgstr "Скидання пароля"
 
-#: users/templates/users/profile.html:4
+#: users/templates/users/profile.html:5
 msgid "Profile"
 msgstr "Профіль"
 
-#: users/templates/users/register.html:4
+#: users/templates/users/register.html:5
 msgid "Register a new account."
 msgstr "Зареєструвати новий обліковий запис."
 
-#: users/templates/users/register.html:5
+#: users/templates/users/register.html:6
 msgid "Already have an account? "
 msgstr "Вже маєте обліковий запис? "
 
-#: users/templates/users/register.html:5
+#: users/templates/users/register.html:6
 msgid "Log in"
 msgstr "Увійти"
 
-#: users/templates/users/register_done.html:4
+#: users/templates/users/register_done.html:5
 msgid "Registration successful"
 msgstr "Реєстрація успішна"
 
-#: users/templates/users/register_done.html:5
+#: users/templates/users/register_done.html:6
 msgid "You can now "
 msgstr "Тепер ви можете "
 
-#: users/templates/users/register_done.html:5
+#: users/templates/users/register_done.html:6
 msgid "log in"
 msgstr "увійти"

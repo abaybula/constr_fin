@@ -4,14 +4,17 @@
     <main class="container-fluid">
 {% block content %}
     <!-- Schedule -->
-    <h1>{% blocktranslate %}Schedule{% endblocktranslate %}</h1>
+    <div class="grid">
+    <h5>{% blocktranslate %}Schedule{% endblocktranslate %}</h5>
+    <h5><a href="{% url 'positions_list' user.id construction.id %}">{% blocktranslate %}List of positions{% endblocktranslate %}</a></h5>
+    </div>
     <!-- Schedule image -->
     {% if schedule_image %}
         <p><img src="data:image/png;base64,{{ schedule_image }}" alt="Schedule"></p>
         <!-- Download PDF button -->
         <form method="get">
             <p>
-                <button type="submit" name="download_pdf" style="width: 15%">{% blocktranslate %}Download{% endblocktranslate %} PDF
+                <button type="submit" name="download_pdf" style="width: 20%">{% blocktranslate %}Download{% endblocktranslate %} PDF
                 </button>
             </p>
         </form>

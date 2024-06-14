@@ -1,522 +1,304 @@
+import unittest
+from datetime import date
 
 from django.contrib.auth.models import User
 from django.test import TestCase, Client
 from django.urls import reverse
 
-from .forms import PositionForm, ConstructionForm
+from .forms import ConstructionForm, PositionForm
 from .models import Position, Construction
 
 
-class ConstructionModelTest(TestCase):
-    """
-    This class defines the test suite for the `Construction` model.
-    """
+class ConstructionModelTests(TestCase):
     def setUp(self):
-        """
-        Set up the test environment by creating a test user with the username 'testuser' and the password '1XISRUkwtuK'.
-        This method is called before each test case is executed.
-        Parameters:
-            self (TestCase): The current test case instance.
-        Returns:
-            None
-        """
         self.user = User.objects.create_user(username='testuser', password='1XISRUkwtuK')
+        self.construction = Construction.objects.create(user=self.user, construction='test_construction')
 
-    def test_create_construction_name(self):
-        """
-        Test the creation of a construction name.
-        This test case checks if a construction name can be successfully created using the `Construction` model.
-        It creates a new construction object with the given name and associates it with the test user. The test then
-        asserts that the string representation of the construction object matches the expected name.
-        Parameters:
-            self (TestCase): The current test case instance.
-        Returns:
-            None
-        """
-        construction = Construction.objects.create(
-            construction_name='Test Construction',
-            user=self.user
-        )
-        self.assertEqual(str(construction), 'Test Construction')
+    def test_construction_creation(self):
+        self.assertEqual(self.construction.user, self.user)
+        self.assertEqual(self.construction.construction, 'test_construction')
 
-    def test_edit_construction_name(self):
-        """
-        Test the editing of a construction name.
-        This test case checks if a construction name can be successfully edited using the `Construction` model.
-        It creates a new construction object with the given name and associates it with the test user. The test then
-        asserts that the string representation of the construction object matches the expected name after editing.
-        Parameters:
-            self (TestCase): The current test case instance.
-        Returns:
-            None
-        """
-        construction = Construction.objects.create(
-            construction_name='Test Construction',
-            user=self.user
-        )
-        construction.construction_name = 'Updated Construction'
-        construction.save()
-        self.assertEqual(str(construction), 'Updated Construction')
+    def test_construction_str(self):
+        self.assertEqual(str(self.construction), 'test_construction')
 
-    def test_delete_construction_name(self):
-        """
-        Test the deletion of a construction name.
-        This test case checks if a construction name can be successfully deleted using the `Construction` model.
-        It creates a new construction object with the given name and associates it with the test user. The test then
-        asserts that the construction object is deleted successfully.
-        Parameters:
-            self (TestCase): The current test case instance.
-        Returns:
-            None
-        """
-        construction = Construction.objects.create(
-            construction_name='Test Construction',
-            user=self.user
-        )
-        construction.delete()
-        self.assertFalse(Construction.objects.filter(construction_name='Test Construction').exists())
+    def test_construction_delete(self):
+        self.construction.delete()
+        self.assertEqual(Construction.objects.count(), 0)
+
+    def test_construction_update(self):
+        self.construction.construction = 'updated_construction'
+        self.construction.save()
+        self.assertEqual(self.construction.construction, 'updated_construction')
 
 
-class PositionModelTest(TestCase):
-    """
-    This class defines the test suite for the `Position` model.
-    """
+class PositionModelTests(TestCase):
     def setUp(self):
-        """
-        Set up the test environment by creating a test user with the username 'testuser' and the password '1XISRUkwtuK'.
-        This method is called before each test case is executed.
-        Parameters:
-            self (TestCase): The current test case instance.
-        Returns:
-            None
-        """
-        self.user = User.objects.create_user(username='testuser', password='1XISRUkwtuK')
-
-    def test_create_position(self):
-        """
-        Test the creation of a position.
-        This test case checks if a position can be successfully created using the `Position` model.
-        It creates a new position object with the given name and associates it with the test user. The test then
-        asserts that the string representation of the position object matches the expected name.
-        Parameters:
-            self (TestCase): The current test case instance.
-        Returns:
-            None
-        """
-        position = Position.objects.create(
+        self.user = User.objects.create_user(username='testuser', password='1XISRUkwtuK', is_staff=True)
+        self.construction = Construction.objects.create(user=self.user, construction='test_construction')
+        self.position = Position.objects.create(
+            construction=self.construction,
             user=self.user,
             order=1,
-            name='Foundation',
-            start_date='2024-01-01',
-            end_date='2024-02-01',
-            cost=10000.00
+            name='Test position',
+            start_date=date(2022, 1, 1),
+            end_date=date(2022, 1, 1),
+            cost=100.00
         )
-        self.assertEqual(str(position), 'testuser - Foundation')
-        self.assertEqual(position.cost, 10000.00)
 
-    def test_edit_position(self):
-        """
-        Test the editing of a position.
-        This test case checks if a position can be successfully edited using the `Position` model.
-        It creates a new position object with the given name and associates it with the test user. The test then
-        asserts that the string representation of the position object matches the expected name after editing.
-        Parameters:
-            self (TestCase): The current test case instance.
-        Returns:
-            None
-        """
-        position = Position.objects.create(
-            user=self.user,
-            order=1,
-            name='Foundation',
-            start_date='2024-01-01',
-            end_date='2024-02-01',
-            cost=10000.00
-        )
-        position.cost = 20000.00
-        position.save()
-        self.assertEqual(position.cost, 20000.00)
+    def test_position_name(self):
+        position = Position.objects.get(id=self.position.id)
+        field_label = position._meta.get_field('name').verbose_name
+        self.assertEqual(field_label, 'name')
 
-    def test_delete_position(self):
-        """
-        Test the deletion of a position.
-        This test case checks if a position can be successfully deleted using the `Position` model.
-        It creates a new position object with the given name and associates it with the test user. The test then
-        asserts that the position object is deleted successfully.
-        Parameters:
-            self (TestCase): The current test case instance.
-        Returns:
-            None
-        """
-        position = Position.objects.create(
-            user=self.user,
-            order=1,
-            name='Foundation',
-            start_date='2024-01-01',
-            end_date='2024-02-01',
-            cost=10000.00
-        )
-        position.delete()
-        positions = Position.objects.all()
-        self.assertEqual(len(positions), 0)
+    def test_position_start_date(self):
+        position = Position.objects.get(id=self.position.id)
+        field_label = position._meta.get_field('start_date').verbose_name
+        self.assertEqual(field_label, 'start date')
+
+    def test_position_end_date(self):
+        position = Position.objects.get(id=self.position.id)
+        field_label = position._meta.get_field('end_date').verbose_name
+        self.assertEqual(field_label, 'end date')
+
+    def test_position_cost(self):
+        position = Position.objects.get(id=self.position.id)
+        field_label = position._meta.get_field('cost').verbose_name
+        self.assertEqual(field_label, 'cost')
+
+    def test_position_creation(self):
+        self.assertEqual(self.position.construction, self.construction)
+        self.assertEqual(self.position.user, self.user)
+        self.assertEqual(self.position.order, 1)
+        self.assertEqual(self.position.name, 'Test position')
+        self.assertEqual(self.position.start_date, date(2022, 1, 1))
+        self.assertEqual(self.position.end_date, date(2022, 1, 1))
+        self.assertEqual(self.position.cost, 100.00)
+
+    def test_position_str(self):
+        position = Position.objects.get(id=self.position.id)
+        self.assertEqual(str(position), 'Test position')
+
+    def test_position_delete(self):
+        self.position.delete()
+        self.assertEqual(Position.objects.count(), 0)
+
+    def test_position_update(self):
+        self.position.name = 'Updated position'
+        self.position.save()
+        self.assertEqual(self.position.name, 'Updated position')
+
+    def test_position_order(self):
+        self.position.order = 2
+        self.position.save()
+        self.assertEqual(self.position.order, 2)
+
+    def test_position_other_name(self):
+        self.position.name = 'other'
+        self.position.save()
+        self.assertEqual(self.position.name, 'other')
 
 
 class ConstructionFormTest(TestCase):
-    """
-    This class defines the test suite for the `ConstructionForm` form.
-    """
-    def test_valid_form(self):
-        """
-        Test if the form is valid with valid data.
-        This test case checks if the form is valid when provided with valid data. It creates a dictionary
-        containing a construction name and initializes a `ConstructionForm` object with the data. Then, it
-        asserts that the form is valid.
-        Parameters:
-            self (TestCase): The current test case instance.
-        Returns:
-            None
-        """
-        data = {
-            'construction_name': 'Test Construction',
-        }
-        form = ConstructionForm(data)
+
+    def setUp(self):
+        self.user = User.objects.create_user(username='testuser', password='1XISRUkwtuK')
+
+    def test_construction_form_valid_data(self):
+        form = ConstructionForm(self.user, data={'construction': 'New Building'})
         self.assertTrue(form.is_valid())
 
-    def test_invalid_form(self):
-        """
-        Test if the form is invalid with invalid data.
-        This test case checks if the form is invalid when provided with invalid data. It creates a dictionary
-        containing an empty construction name and initializes a `ConstructionForm` object with the data. Then, it
-        asserts that the form is invalid.
-        Parameters:
-            self (TestCase): The current test case instance.
-        Returns:
-            None
-        """
-        data = {
-            'construction_name': '',
-        }
-        form = ConstructionForm(data)
+    def test_construction_form_no_data(self):
+        form = ConstructionForm(self.user, data={})
         self.assertFalse(form.is_valid())
+        self.assertEqual(len(form.errors), 1)
+
+    def test_construction_form_widgets(self):
+        form = ConstructionForm(self.user)
+        self.assertIn('class="form-input"', str(form['construction']))
 
 
 class PositionFormTest(TestCase):
-    """
-    This class defines the test suite for the `PositionForm` form.
-    """
-    def test_valid_form(self):
-        """
-        Test if the form is valid with valid data.
-        This test case checks if the form is valid when provided with valid data. It creates a dictionary
-        containing position data and initializes a `PositionForm` object with the data. Then, it asserts that
-        the form is valid.
-        Parameters:
-            self (TestCase): The current test case instance.
-        Returns:
-            None
-        """
-        data = {
-            'order': 1,
-            'name': 'Foundation',
-            'start_date': '2024-01-01',
-            'end_date': '2024-02-01',
-            'cost': 10000.00
-        }
-        form = PositionForm(data)
+
+    def setUp(self):
+        self.user = User.objects.create_user(username='testuser', password='1XISRUkwtuK')
+        self.construction = Construction.objects.create(user=self.user, construction='New Construction')
+
+    def test_position_form_valid_data(self):
+        form = PositionForm(
+            self.user, self.construction.id,
+            data={
+                'order': 1,
+                'name': 'Foundation',
+                'start_date': '2023-01-01',
+                'end_date': '2023-12-31',
+                'cost': 10000,
+                'other_name': ''
+            }
+        )
         self.assertTrue(form.is_valid())
 
-    def test_invalid_form(self):
-        """
-        Test if the form is invalid with invalid data.
-        This test case checks if the form is invalid when provided with invalid data. It creates a dictionary
-        containing an empty position data and initializes a `PositionForm` object with the data. Then, it asserts
-        that the form is invalid.
-        Parameters:
-            self (TestCase): The current test case instance.
-        Returns:
-            None
-        """
-        data = {
-            'order': '',
-            'name': 'Foundation',
-            'start_date': '2024-01-01',
-            'end_date': '2024-02-01',
-            'cost': 10000.00
-        }
-        form = PositionForm(data)
+    def test_position_form_invalid_date(self):
+        form = PositionForm(
+            self.user, self.construction.id,
+            data={
+                'order': 1,
+                'name': 'Foundation',
+                'start_date': '2023-12-31',
+                'end_date': '2023-01-01',
+                'cost': 10000,
+                'other_name': ''
+            }
+        )
         self.assertFalse(form.is_valid())
+        self.assertIn('End date cannot be earlier than start date.', form.errors['__all__'])
+
+    def test_position_form_other_name_required(self):
+        form = PositionForm(
+            self.user, self.construction.id,
+            data={
+                'order': 1,
+                'name': 'other',
+                'start_date': '2023-01-01',
+                'end_date': '2023-12-31',
+                'cost': 10000,
+                'other_name': ''
+            }
+        )
+        self.assertFalse(form.is_valid())
+        self.assertIn('Please provide a value for other name', form.errors['other_name'])
+
+    def test_position_form_widgets(self):
+        form = PositionForm(self.user, self.construction.id)
+        self.assertIn('type="number"', str(form['order']))
+        self.assertIn('type="date"', str(form['start_date']))
+        self.assertIn('type="date"', str(form['end_date']))
+
+    def test_position_form_save(self):
+        form = PositionForm(
+            self.user, self.construction.id,
+            data={
+                'order': 1,
+                'name': 'other',
+                'start_date': '2023-01-01',
+                'end_date': '2023-12-31',
+                'cost': 10000,
+                'other_name': 'Custom Work'
+            }
+        )
+        self.assertTrue(form.is_valid())
+        position = form.save(commit=True)
+        self.assertEqual(position.name, 'Custom Work')
+        self.assertEqual(position.user, self.user)
+        self.assertEqual(position.construction_id, self.construction.id)
 
 
-class PositionViewTest(TestCase):
-    """
-    This class defines the test suite for the `PositionView` view.
-    """
-    def setUp(self):
-        """
-        Set up the test case by creating a user and client.
-        Parameters:
-            self (TestCase): The current test case instance.
-        Returns:
-            None
-        """
-        self.client = Client()
-        self.user = User.objects.create_user(username='testuser', password='1XISRUkwtuK')
-        self.client.login(username='testuser', password='1XISRUkwtuK')
+if __name__ == '__main__':
+    unittest.main()
 
-    def test_index_view(self):
-        """
-        Test if the index view is rendered correctly.
-        This test case checks if the index view is rendered correctly when provided with valid data. It asserts
-        that the response status code is 200 and that the template used is 'index.html'.
-        Parameters:
-            self (TestCase): The current test case instance.
-        Returns:
-            None
-        """
-        response = self.client.get(reverse('index'))
+
+class IndexViewTest(TestCase):
+    def test_index_view_get(self):
+        client = Client()
+        response = client.get(reverse('index'))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'index.html')
 
-    def test_add_construction_name_view(self):
-        """
-        Test if the add construction name view is rendered correctly.
-        This test case checks if the add construction name view is rendered correctly when provided with valid data.
-        It asserts that the response status code is 200 and that the template used is 'add_construction_name.html'.
-        Parameters:
-            self (TestCase): The current test case instance.
-        Returns:
-            None
-        """
-        response = self.client.get(reverse('add_construction_name', args=[self.user.id]))
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'add_construction_name.html')
 
-    def test_add_construction_name_post_view(self):
-        """
-        Test if the add construction name view is rendered correctly.
-        This test case checks if the add construction name view is rendered correctly when provided with valid data.
-        It asserts that the response status code is 302 and that the template used is 'add_construction_name.html'.
-        Parameters:
-            self (TestCase): The current test case instance.
-        Returns:
-            None
-        """
-        data = {
-            'construction_name': 'Test Construction',
-        }
-        response = self.client.post(reverse('add_construction_name', args=[self.user.id]), data)
+class ConstructionListViewTest(TestCase):
+    def setUp(self):
+        self.client = Client()
+        self.user = User.objects.create_user(username='testuser', password='12345')
+        self.client.login(username='testuser', password='12345')
+        self.url = reverse('constructions_list', args=[self.user.id])
+
+    def test_construction_list_view_permission_denied(self):
+        other_user = User.objects.create_user(username='otheruser', password='54321')
+        response = self.client.get(reverse('constructions_list', args=[other_user.id]))
+        self.assertEqual(response.status_code, 403)
+
+    def test_construction_list_view_success(self):
+        response = self.client.get(self.url)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'constructions_list.html')
+
+
+class AddConstructionViewTest(TestCase):
+    def setUp(self):
+        self.client = Client()
+        self.user = User.objects.create_user(username='testuser', password='12345')
+        self.client.login(username='testuser', password='12345')
+        self.url = reverse('add_construction', args=[self.user.id])
+
+    def test_add_construction_view_get_permission_denied(self):
+        other_user = User.objects.create_user(username='otheruser', password='54321')
+        response = self.client.get(reverse('add_construction', args=[other_user.id]))
+        self.assertEqual(response.status_code, 403)
+
+    def test_add_construction_view_get_success(self):
+        response = self.client.get(self.url)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'add_construction.html')
+
+    def test_add_construction_view_post_success(self):
+        response = self.client.post(self.url, {'construction': 'New Construction'})
         self.assertEqual(response.status_code, 302)
+        self.assertTrue(Construction.objects.filter(user=self.user, construction='New Construction').exists())
 
-    def test_edit_construction_name_view(self):
-        """
-        Test if the edit construction name view is rendered correctly.
-        This test case checks if the edit construction name view is rendered correctly when provided with valid data.
-        It asserts that the response status code is 200 and that the template used is 'edit_construction_name.html'.
-        Parameters:
-            self (TestCase): The current test case instance.
-        Returns:
-            None
-        """
-        construction = Construction.objects.create(
-            construction_name='Test Construction',
-            user=self.user
-        )
-        response = self.client.get(reverse('edit_construction_name', args=[self.user.id, construction.id]))
+    def test_add_construction_view_post_invalid(self):
+        response = self.client.post(self.url, {'construction': ''})
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'edit_construction_name.html')
+        self.assertFormError(response, 'form', 'construction', 'This field is required.')
 
-    def test_edit_construction_name_post_view(self):
-        """
-        Test if the edit construction name view is rendered correctly.
-        This test case checks if the edit construction name view is rendered correctly when provided with valid data.
-        It asserts that the response status code is 302 and that the template used is 'edit_construction_name.html'.
-        Parameters:
-            self (TestCase): The current test case instance.
-        Returns:
-            None
-        """
-        construction = Construction.objects.create(
-            construction_name='Test Construction',
-            user=self.user
-        )
-        data = {
-            'construction_name': 'Updated Construction',
-        }
-        response = self.client.post(reverse('edit_construction_name', args=[self.user.id, construction.id]), data)
+
+class EditConstructionViewTest(TestCase):
+    def setUp(self):
+        self.client = Client()
+        self.user = User.objects.create_user(username='testuser', password='12345')
+        self.client.login(username='testuser', password='12345')
+        self.construction = Construction.objects.create(user=self.user, construction='Existing Construction')
+        self.url = reverse('edit_construction', args=[self.user.id, self.construction.id])
+
+    def test_edit_construction_view_get_permission_denied(self):
+        other_user = User.objects.create_user(username='otheruser', password='54321')
+        response = self.client.get(reverse('edit_construction', args=[other_user.id, self.construction.id]))
+        self.assertEqual(response.status_code, 403)
+
+    def test_edit_construction_view_get_success(self):
+        response = self.client.get(self.url)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'edit_construction.html')
+
+    def test_edit_construction_view_post_success(self):
+        response = self.client.post(self.url, {'construction': 'Updated Construction'})
         self.assertEqual(response.status_code, 302)
+        self.construction.refresh_from_db()
+        self.assertEqual(self.construction.construction, 'Updated Construction')
 
-    def test_delete_construction_name_view(self):
-        """
-        Test if the delete construction name view is rendered correctly.
-        This test case checks if the delete construction name view is rendered correctly when provided with valid data.
-        It asserts that the response status code is 200 and that the template used is 'delete_construction_name.html'.
-        Parameters:
-            self (TestCase): The current test case instance.
-        Returns:
-            None
-        """
-        construction = Construction.objects.create(
-            construction_name='Test Construction',
-            user=self.user
-        )
-        response = self.client.get(reverse('delete_construction_name', args=[self.user.id, construction.id]))
+    def test_edit_construction_view_post_invalid(self):
+        response = self.client.post(self.url, {'construction': ''})
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'delete_construction_name.html')
+        self.assertFormError(response, 'form', 'construction', 'This field is required.')
 
-    def test_delete_construction_name_post_view(self):
-        """
-        Test if the delete construction name view is rendered correctly.
-        This test case checks if the delete construction name view is rendered correctly when provided with valid data.
-        It asserts that the response status code is 302 and that the template used is 'delete_construction_name.html'.
-        Parameters:
-            self (TestCase): The current test case instance.
-        Returns:
-            None
-        """
-        construction = Construction.objects.create(
-            construction_name='Test Construction',
-            user=self.user
-        )
-        response = self.client.post(reverse('delete_construction_name', args=[self.user.id, construction.id]))
+
+class DeleteConstructionViewTest(TestCase):
+    def setUp(self):
+        self.client = Client()
+        self.user = User.objects.create_user(username='testuser', password='12345')
+        self.client.login(username='testuser', password='12345')
+        self.construction = Construction.objects.create(user=self.user, construction='Existing Construction')
+        self.url = reverse('delete_construction', args=[self.user.id, self.construction.id])
+
+    def test_delete_construction_view_get_permission_denied(self):
+        other_user = User.objects.create_user(username='otheruser', password='54321')
+        response = self.client.get(reverse('delete_construction', args=[other_user.id, self.construction.id]))
+        self.assertEqual(response.status_code, 403)
+
+    def test_delete_construction_view_get_success(self):
+        response = self.client.get(self.url)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'delete_construction.html')
+
+    def test_delete_construction_view_post_success(self):
+        response = self.client.post(self.url)
         self.assertEqual(response.status_code, 302)
-
-    def test_add_position_view(self):
-        """
-        Test if the add position view is rendered correctly.
-        This test case checks if the add position view is rendered correctly when provided with valid data.
-        It asserts that the response status code is 200 and that the template used is 'add_position.html'.
-        Parameters:
-            self (TestCase): The current test case instance.
-        Returns:
-            None
-        """
-        response = self.client.get(reverse('add_position', args=[self.user.id]))
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'add_position.html')
-
-    def test_add_position_post_view(self):
-        """
-        Test if the add position view is rendered correctly.
-        This test case checks if the add position view is rendered correctly when provided with valid data.
-        It asserts that the response status code is 302 and that the template used is 'add_position.html'.
-        Parameters:
-            self (TestCase): The current test case instance.
-        Returns:
-            None
-        """
-        data = {
-            'order': 1,
-            'name': 'Foundation',
-            'start_date': '2024-01-01',
-            'end_date': '2024-02-01',
-            'cost': 10000.00
-        }
-        response = self.client.post(reverse('add_position', args=[self.user.id]), data)
-        self.assertEqual(response.status_code, 302)
-
-    def test_edit_position_view(self):
-        """
-        Test if the edit position view is rendered correctly.
-        This test case checks if the edit position view is rendered correctly when provided with valid data.
-        It asserts that the response status code is 200 and that the template used is 'edit_position.html'.
-        Parameters:
-            self (TestCase): The current test case instance.
-        Returns:
-            None
-        """
-        position = Position.objects.create(
-            user=self.user,
-            order=1,
-            name='Foundation',
-            start_date='2024-01-01',
-            end_date='2024-02-01',
-            cost=10000.00
-        )
-        response = self.client.get(reverse('edit_position', args=[self.user.id, position.id]))
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'edit_position.html')
-
-    def test_edit_position_post_view(self):
-        """
-        Test if the edit position view is rendered correctly.
-        This test case checks if the edit position view is rendered correctly when provided with valid data.
-        It asserts that the response status code is 302 and that the template used is 'edit_position.html'.
-        Parameters:
-            self (TestCase): The current test case instance.
-        Returns:
-            None
-        """
-        position = Position.objects.create(
-            user=self.user,
-            order=1,
-            name='Foundation',
-            start_date='2024-01-01',
-            end_date='2024-02-01',
-            cost=10000.00
-        )
-        data = {
-            'order': 1,
-            'name': 'Foundation',
-            'start_date': '2024-01-01',
-            'end_date': '2024-02-01',
-            'cost': 20000.00
-        }
-        response = self.client.post(reverse('edit_position', args=[self.user.id, position.id]), data)
-        self.assertEqual(response.status_code, 302)
-
-    def test_delete_position_view(self):
-        """
-        Test if the delete position view is rendered correctly.
-        This test case checks if the delete position view is rendered correctly when provided with valid data.
-        It asserts that the response status code is 200 and that the template used is 'delete_position.html'.
-        Parameters:
-            self (TestCase): The current test case instance.
-        Returns:
-            None
-        """
-        position = Position.objects.create(
-            user=self.user,
-            order=1,
-            name='Foundation',
-            start_date='2024-01-01',
-            end_date='2024-02-01',
-            cost=10000.00
-        )
-        response = self.client.get(reverse('delete_position', args=[self.user.id, position.id]))
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'delete_position.html')
-
-    def test_delete_position_post_view(self):
-        """
-        Test if the delete position view is rendered correctly.
-        This test case checks if the delete position view is rendered correctly when provided with valid data.
-        It asserts that the response status code is 302 and that the template used is 'delete_position.html'.
-        Parameters:
-            self (TestCase): The current test case instance.
-        Returns:
-            None
-        """
-        position = Position.objects.create(
-            user=self.user,
-            order=1,
-            name='Foundation',
-            start_date='2024-01-01',
-            end_date='2024-02-01',
-            cost=10000.00
-        )
-        response = self.client.post(reverse('delete_position', args=[self.user.id, position.id]))
-        self.assertEqual(response.status_code, 302)
-
-    def test_schedule_view(self):
-        """
-        Test if the schedule view is rendered correctly.
-        This test case checks if the schedule view is rendered correctly when provided with valid data.
-        It asserts that the response status code is 200 and that the template used is 'schedule.html'.
-        Parameters:
-            self (TestCase): The current test case instance.
-        Returns:
-            None
-        """
-        response = self.client.get(reverse('schedule', args=[self.user.id]))
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'schedule.html')
+        self.assertFalse(Construction.objects.filter(id=self.construction.id).exists())

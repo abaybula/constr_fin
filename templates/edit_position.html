@@ -7,6 +7,11 @@
     <h1>{% blocktranslate %}Edit position{% endblocktranslate %}</h1>
     <form method="post">
         {% csrf_token %}
+        {% if form.non_field_errors %}
+            <div class="alert alert-danger">
+                {{ form.non_field_errors }}
+            </div>
+        {% endif %}
         <table>
             <thead>
             <tr>
@@ -28,17 +33,12 @@
                 <td>{{ form.start_date }}</td>
                 <td>{{ form.end_date }}</td>
                 <td>{{ form.cost }}</td>
-                {% if form.non_field_errors %}
-                    <div class="alert alert-danger">
-                        {{ form.non_field_errors }}
-                    </div>
-                {% endif %}
             </tr>
             <tr>
                 <td>
                     <button type="submit">{% blocktranslate %}Save{% endblocktranslate %}</button>
                 </td>
-                <td><a href="{% url 'positions_list' user.id %}">{% blocktranslate %}Cancel{% endblocktranslate %}</a>
+                <td><a href="{% url 'positions_list' user.id construction_id %}">{% blocktranslate %}Cancel{% endblocktranslate %}</a>
                 </td>
                 <td></td>
                 <td></td>

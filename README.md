@@ -40,7 +40,13 @@ Financing Schedule page example:
     docker-compose run --rm web-app sh -c "django-admin compilemessages"
     ```
 
-4. Set up the database in `settings.py`:
+4. Collect static files:
+
+    ```bash
+    docker-compose run --rm web-app sh -c "./manage.py collectstatic"
+    ```
+
+5. Set up the database in `settings.py`:
 
     ```python
    DATABASES = {
@@ -50,23 +56,24 @@ Financing Schedule page example:
         'NAME': os.environ.get('DB_NAME'),
         'USER': os.environ.get('DB_USER'),
         'PASSWORD': os.environ.get('DB_PASS'),
+        'PORT': '5432',
         }
     }
     ```
 
-5. Run database migrations:
+6. Run database migrations:
 
     ```bash
     docker-compose run --rm web-app sh -c "./manage.py migrate"
     ```
 
-6. Create a superuser:
+7. Create a superuser:
 
     ```bash
     docker-compose run --rm web-app sh -c "./manage.py createsuperuser"
     ```
 
-7. Run the development server:
+8. Run the development server:
 
     ```bash
     docker-compose up
