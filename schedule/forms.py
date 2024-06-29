@@ -37,6 +37,24 @@ class ConstructionForm(forms.ModelForm):
         # Store the user associated with the form.
         self.user = user
 
+    def save(self, commit=True):
+        """
+        Save the construction.
+        Args:
+            commit (bool): Whether to save the changes to the database.
+        Returns:
+            Construction: The saved construction object.
+        """
+        # Create a new construction object
+        position = super().save(commit=False)
+        # Set the user attribute of the construction object
+        position.user = self.user
+        # If commit is True, save the changes to the database
+        if commit:
+            position.save()
+        # Return the saved construction object
+        return position
+
 
 class PositionForm(forms.ModelForm):
     """

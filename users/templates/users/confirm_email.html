@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+    <!-- Email confirmation template -->
+    <h2>{% blocktranslate %}Email confirmation{% endblocktranslate %}</h2>
+    <p>{% blocktranslate %}Please check your email to verify your account.{% endblocktranslate %}</p>
+    <p>{% blocktranslate %}If you did not receive an email, you can {% endblocktranslate %}<a href="{{ url }}">{% blocktranslate %}request a new email{% endblocktranslate %}</a>.</p>
+{% endblock content %}

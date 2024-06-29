@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+    <!-- Activation error template -->
+    <h1>{% blocktranslate %}Email Verification Failed{% endblocktranslate %}</h1>
+    <p>{% blocktranslate %}We're sorry, but the email verification failed. Please try again.{% endblocktranslate %}</p>
+    <a href="{% url 'users:register' %}">{% blocktranslate %}Click here to register again{% endblocktranslate %}</a>
+{% endblock content %}

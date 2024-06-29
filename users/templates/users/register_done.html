@@ -2,6 +2,8 @@
 {% load i18n %}
 {% block content %}
     <!-- Registration successful template -->
-    <h1>{% blocktranslate %}Registration successful{% endblocktranslate %}</h1>
-    <p>{% blocktranslate %}You can now {% endblocktranslate %}<a href="{% url 'users:login' %}">{% blocktranslate %}log in{% endblocktranslate %}</a>.</p>
+    <h1>{% blocktranslate %}Registration Successful{% endblocktranslate %}</h1>
+    <p>{% blocktranslate %}Thank you for registering, {% endblocktranslate %}{{ user.username }}. {% blocktranslate %}Please check your email to verify your account.{% endblocktranslate %}</p>
+    <p>{% blocktranslate %}If you did not receive an email, you can {% endblocktranslate %}<a href="{% url 'users:resend_email' %}">{% blocktranslate %}request a new email{% endblocktranslate %}</a>.</p>
+    <a href="{% url 'users:login' %}">{% blocktranslate %}Click here to login{% endblocktranslate %}</a>
 {% endblock content %}

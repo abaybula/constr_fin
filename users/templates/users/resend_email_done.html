@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+    <!-- Resend email done template -->
+    <h1>{% blocktranslate %}Email Verification Link Resent{% endblocktranslate %}</h1>
+    <p>{% blocktranslate %}We have resent the email verification link to your email address. Please check your email and click on the link to verify your email.{% endblocktranslate %}</p>
+    <a href="{% url 'users:login' %}">{% blocktranslate %}Click here to login{% endblocktranslate %}</a>
+{% endblock content %}

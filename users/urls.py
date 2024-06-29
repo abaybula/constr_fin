@@ -33,4 +33,9 @@ urlpatterns = [
     path('password-reset/complete/',
          PasswordResetCompleteView.as_view(template_name='users/password_reset_complete.html'),
          name='password_reset_complete'),
+    path('email-verification-request/', views.EmailVerificationRequest.as_view(), name='email_verification_request'),
+    path('email-verification-confirm/<uidb64>/<token>/', views.EmailVerificationConfirm.as_view(),
+         name='email_verification_confirm'),
+    path('resend-email/', views.ResendEmail.as_view(), name='resend_email'),
+    path('resend-email-done/', views.ResendEmailDone.as_view(), name='resend_email_done'),
 ]

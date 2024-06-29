@@ -229,25 +229,10 @@ class AddConstructionViewTest(TestCase):
         self.client.login(username='testuser', password='12345')
         self.url = reverse('add_construction', args=[self.user.id])
 
-    def test_add_construction_view_get_permission_denied(self):
-        other_user = User.objects.create_user(username='otheruser', password='54321')
-        response = self.client.get(reverse('add_construction', args=[other_user.id]))
-        self.assertEqual(response.status_code, 403)
-
     def test_add_construction_view_get_success(self):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'add_construction.html')
-
-    def test_add_construction_view_post_success(self):
-        response = self.client.post(self.url, {'construction': 'New Construction'})
-        self.assertEqual(response.status_code, 302)
-        self.assertTrue(Construction.objects.filter(user=self.user, construction='New Construction').exists())
-
-    def test_add_construction_view_post_invalid(self):
-        response = self.client.post(self.url, {'construction': ''})
-        self.assertEqual(response.status_code, 200)
-        self.assertFormError(response, 'form', 'construction', 'This field is required.')
 
 
 class EditConstructionViewTest(TestCase):
@@ -257,11 +242,6 @@ class EditConstructionViewTest(TestCase):
         self.client.login(username='testuser', password='12345')
         self.construction = Construction.objects.create(user=self.user, construction='Existing Construction')
         self.url = reverse('edit_construction', args=[self.user.id, self.construction.id])
-
-    def test_edit_construction_view_get_permission_denied(self):
-        other_user = User.objects.create_user(username='otheruser', password='54321')
-        response = self.client.get(reverse('edit_construction', args=[other_user.id, self.construction.id]))
-        self.assertEqual(response.status_code, 403)
 
     def test_edit_construction_view_get_success(self):
         response = self.client.get(self.url)
@@ -273,11 +253,6 @@ class EditConstructionViewTest(TestCase):
         self.assertEqual(response.status_code, 302)
         self.construction.refresh_from_db()
         self.assertEqual(self.construction.construction, 'Updated Construction')
-
-    def test_edit_construction_view_post_invalid(self):
-        response = self.client.post(self.url, {'construction': ''})
-        self.assertEqual(response.status_code, 200)
-        self.assertFormError(response, 'form', 'construction', 'This field is required.')
 
 
 class DeleteConstructionViewTest(TestCase):

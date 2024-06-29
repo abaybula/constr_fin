@@ -6,19 +6,19 @@ from django.db.models import Sum
 from django.http import HttpResponseForbidden, HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils.translation import gettext_lazy as _
-from django.views import View
 from matplotlib import pyplot as plt
-from rest_framework.decorators import permission_classes
+from rest_framework.throttling import UserRateThrottle
+from rest_framework.views import APIView
 
 from schedule.forms import PositionForm, ConstructionForm
 from schedule.models import Position, Construction
 from schedule.permissions import IsUserOnly
+from schedule.serializers import ConstructionSerializer, PositionSerializer
 
 
-class IndexView(View):
+class IndexView(APIView):
     """
     View for rendering the index page.
-
     This view is responsible for rendering the index page when a GET request is made.
     It uses the `render` function from Django to render the template specified by `self.template_name`.
     Args:
@@ -40,7 +40,7 @@ class IndexView(View):
         return render(request, self.template_name)
 
 
-class ConstructionListView(View):
+class ConstructionListView(APIView):
     """
     View for rendering the list of constructions.
 
@@ -51,7 +51,10 @@ class ConstructionListView(View):
     Returns:
         HttpResponse: The rendered response.
     """
-    permission_classes([IsUserOnly])
+    permission_classes = [IsUserOnly, ]
+    queryset = Construction.objects.all()
+    serializers_class = ConstructionSerializer
+    throttle_classes = [UserRateThrottle, ]
     template_name = 'constructions_list.html'
 
     def get(self, request, user_id):
@@ -65,19 +68,20 @@ class ConstructionListView(View):
         Returns:
             HttpResponse: The rendered response with the constructions list.
         """
+        # Check if the user has permission to view the page
         if request.user.id != user_id:
             return HttpResponseForbidden(_("<h1>You don't have permission to view this page</h1>"))
-
+        # Filter constructions based on the user_id
         constructions = Construction.objects.filter(user_id=user_id)
-
+        # Prepare the context data for rendering the template
         context = {
             'constructions': constructions
         }
-
+        # Render the constructions list template with the context data
         return render(request, self.template_name, context)
 
 
-class AddConstructionView(View):
+class AddConstructionView(APIView):
     """
     View for adding a new construction.
     This view is responsible for rendering the construction form when a GET request is made.
@@ -87,7 +91,10 @@ class AddConstructionView(View):
     Returns:
         HttpResponse: The rendered response with the construction form.
     """
-    permission_classes([IsUserOnly])
+    permission_classes = [IsUserOnly, ]
+    queryset = Construction.objects.all()
+    serializers_class = ConstructionSerializer
+    throttle_classes = [UserRateThrottle, ]
     template_name = 'add_construction.html'
 
     def get(self, request, user_id):
@@ -155,7 +162,7 @@ class AddConstructionView(View):
         return render(request, self.template_name, context)
 
 
-class EditConstructionView(View):
+class EditConstructionView(APIView):
     """
     View for editing a construction.
     This view is responsible for rendering the construction form when a GET request is made.
@@ -166,7 +173,10 @@ class EditConstructionView(View):
     Returns:
         HttpResponse: The rendered response with the construction form.
     """
-    permission_classes([IsUserOnly])
+    permission_classes = [IsUserOnly, ]
+    queryset = Construction.objects.all()
+    serializers_class = ConstructionSerializer
+    throttle_classes = [UserRateThrottle, ]
     template_name = 'edit_construction.html'
 
     def get(self, request, user_id, construction_id):
@@ -242,7 +252,7 @@ class EditConstructionView(View):
         return render(request, self.template_name, context)
 
 
-class DeleteConstructionView(View):
+class DeleteConstructionView(APIView):
     """
     View for deleting a construction.
     This view is responsible for rendering the construction deletion confirmation form when a GET request is made.
@@ -253,7 +263,10 @@ class DeleteConstructionView(View):
     Returns:
         HttpResponse: The rendered response with the construction deletion confirmation form.
     """
-    permission_classes([IsUserOnly])
+    permission_classes = [IsUserOnly, ]
+    queryset = Construction.objects.all()
+    serializers_class = ConstructionSerializer
+    throttle_classes = [UserRateThrottle, ]
     template_name = 'delete_construction.html'
 
     def get(self, request, user_id, construction_id):
@@ -313,7 +326,7 @@ class DeleteConstructionView(View):
         return redirect('constructions_list', user_id)
 
 
-class PositionsListView(View):
+class PositionsListView(APIView):
     """
     View for displaying a list of positions.
     This view is responsible for rendering the positions list page when a GET request is made.
@@ -325,7 +338,10 @@ class PositionsListView(View):
     Returns:
         HttpResponse: The rendered response with the positions list page.
     """
-    permission_classes([IsUserOnly])
+    permission_classes = [IsUserOnly, ]
+    queryset = Position.objects.all()
+    serializers_class = PositionSerializer
+    throttle_classes = [UserRateThrottle, ]
     template_name = 'positions_list.html'
 
     def get(self, request, user_id, construction_id):
@@ -365,7 +381,7 @@ class PositionsListView(View):
         return render(request, self.template_name, context)
 
 
-class AddPositionView(View):
+class AddPositionView(APIView):
     """
     View for adding a position.
     This view is responsible for rendering the add position page when a GET request is made.
@@ -377,7 +393,10 @@ class AddPositionView(View):
     Returns:
         HttpResponse: The rendered response with the add position page.
     """
-    permission_classes([IsUserOnly])
+    permission_classes = [IsUserOnly, ]
+    queryset = Position.objects.all()
+    serializers_class = PositionSerializer
+    throttle_classes = [UserRateThrottle, ]
     template_name = 'add_position.html'
 
     def get(self, request, user_id, construction_id):
@@ -444,7 +463,7 @@ class AddPositionView(View):
         return render(request, self.template_name, context)
 
 
-class EditPositionView(View):
+class EditPositionView(APIView):
     """
     View for editing a position.
     This view is responsible for rendering the edit position page when a GET request is made.
@@ -457,7 +476,10 @@ class EditPositionView(View):
     Returns:
         HttpResponse: The rendered response with the edit position page.
     """
-    permission_classes([IsUserOnly])
+    permission_classes = [IsUserOnly, ]
+    queryset = Position.objects.all()
+    serializers_class = PositionSerializer
+    throttle_classes = [UserRateThrottle, ]
     template_name = 'edit_position.html'
 
     def get(self, request, user_id, construction_id, position_id):
@@ -532,7 +554,7 @@ class EditPositionView(View):
         return render(request, self.template_name, context)
 
 
-class DeletePositionView(View):
+class DeletePositionView(APIView):
     """
     View for deleting a position.
     This view is responsible for rendering the delete position page when a GET request is made.
@@ -545,7 +567,10 @@ class DeletePositionView(View):
     Returns:
         HttpResponse: The rendered response with the delete position page.
     """
-    permission_classes([IsUserOnly])
+    permission_classes = [IsUserOnly, ]
+    queryset = Position.objects.all()
+    serializers_class = PositionSerializer
+    throttle_classes = [UserRateThrottle, ]
     template_name = 'delete_position.html'
 
     def get(self, request, user_id, construction_id, position_id):
@@ -603,7 +628,7 @@ class DeletePositionView(View):
         return redirect('positions_list', user_id, construction_id)
 
 
-class ScheduleView(View):
+class ScheduleView(APIView):
     """
     View for displaying the schedule.
     This view is responsible for rendering the schedule page when a GET request is made.
@@ -615,7 +640,8 @@ class ScheduleView(View):
     Returns:
         HttpResponse: The rendered response with the schedule page.
     """
-    permission_classes([IsUserOnly])
+    permission_classes = [IsUserOnly, ]
+    throttle_classes = [UserRateThrottle, ]
     template_name = 'schedule.html'
 
     def get(self, request, user_id, construction_id):

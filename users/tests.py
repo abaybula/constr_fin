@@ -1,7 +1,9 @@
 from django.contrib.auth import get_user_model
-from django.test import TestCase
+from django.http import HttpResponse
+from django.test import TestCase, RequestFactory
 
 from users.forms import LoginUserForm, RegisterUserForm
+from users.views import EmailVerificationRequest
 
 
 class LoginUserTest(TestCase):
@@ -183,3 +185,45 @@ class RegisterUserTest(TestCase):
             'password2': '1XISRUkwtuK'
         })
         self.assertTrue(form.is_valid(), msg=str(form.errors))
+
+    def test_register_user_no_username(self):
+        """
+        Test if the form is invalid with no username.
+        This test case checks if the form is invalid when provided with no username. It creates a dictionary
+        containing user data with no username and initializes a `RegisterUserForm` object with the data. Then, it
+        asserts that the form is invalid.
+        Parameters:
+            self (TestCase): The current test case instance.
+        Returns:
+            None
+        """
+        form = RegisterUserForm(data={
+            'username': '',
+            'email': 'p8qFQ@example.com',
+            'first_name': 'John',
+            'last_name': 'Doo',
+            'password1': '1XISRUkwtuK',
+            'password2': '1XISRUkwtuK',
+        })
+        self.assertFalse(form.is_valid())
+
+
+class EmailVerificationRequestTest(TestCase):
+    """
+    This class defines the test suite for the `EmailVerificationRequest` view.
+    """
+    def test_get(self):
+        """
+        Test the GET method of the view.
+        This test case checks if the view returns the correct response when handling a GET request. It creates a
+        `EmailVerificationRequest` object and calls the `get` method with a mock request object. Then, it asserts
+        that the response is an instance of `HttpResponse`.
+        Parameters:
+            self (TestCase): The current test case instance.
+        Returns:
+            None
+        """
+        view = EmailVerificationRequest()
+        request = RequestFactory().get('/')
+        response = view.get(request)
+        self.assertIsInstance(response, HttpResponse)

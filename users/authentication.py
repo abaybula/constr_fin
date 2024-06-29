@@ -1,51 +1,42 @@
 from django.contrib.auth import get_user_model
-from django.contrib.auth.backends import BaseBackend
+from django.contrib.auth.backends import ModelBackend
 
 
-class EmailAuthBackend(BaseBackend):
+class EmailAuthBackend(ModelBackend):
     """
-    Authenticates a user based on their email address.
-    Parameters:
-        None
-    Returns:
-        User: The authenticated user object.
-    Raises:
-        None
+    Custom authentication backend that allows users to log in using their email address.
     """
     def authenticate(self, request, username=None, password=None, **kwargs):
         """
-        Authenticates a user based on the provided credentials.
-        Parameters:
+        Authenticate a user.
+        Args:
             request (HttpRequest): The HTTP request object.
-            username (str): The email of the user.
-            password (str): The password of the user.
+            username (str): The username to authenticate.
+            password (str): The password to authenticate.
             **kwargs: Additional keyword arguments.
-        Returns:
-            User: The authenticated user object.
-        Raises:
-            None
         """
+        # Get the user model
         user_model = get_user_model()
+        # Check if the username is an email address
         try:
             user = user_model.objects.get(email=username)
-            if user.check_password(password):
+            if user.check_password(password) and user.is_verified:
                 return user
-            return None
-        except (user_model.DoesNotExist, user_model.MultipleObjectsReturned):
+        # If the username is not an email address, return None
+        except user_model.DoesNotExist:
             return None
 
     def get_user(self, user_id):
         """
-        Retrieves a user based on the provided user ID.
-        Parameters:
+        Get a user by ID.
+        Args:
             user_id (int): The ID of the user.
-        Returns:
-            User: The user object if found, otherwise None.
-        Raises:
-            None
         """
+        # Get the user model
         user_model = get_user_model()
+        # Get the user by ID
         try:
             return user_model.objects.get(pk=user_id)
+        # If the user does not exist, return None
         except user_model.DoesNotExist:
             return None

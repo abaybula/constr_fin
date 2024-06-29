@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+    <!-- Activation successful template -->
+    <h1>{% blocktranslate %}Email Verification Successful{% endblocktranslate %}</h1>
+    <p>{% blocktranslate %}Thank you,{% endblocktranslate %} {{ user.username }}. {% blocktranslate %}Your email has been successfully verified.{% endblocktranslate %}</p>
+    <a href="{% url 'users:login' %}">{% blocktranslate %}Click here to login{% endblocktranslate %}</a>
+{% endblock content %}

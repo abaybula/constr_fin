@@ -1,6 +1,9 @@
+import uuid
+
 from django import forms
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm, UserCreationForm
+from django.utils.translation import gettext_lazy as _
 
 
 class LoginUserForm(AuthenticationForm):
@@ -35,16 +38,6 @@ class RegisterUserForm(UserCreationForm):
         """
         model = get_user_model()
         fields = ('username', 'email', 'first_name', 'last_name', 'password1', 'password2')
-        labels = {
-            'email': 'Email',
-            'first_name': 'First Name',
-            'last_name': 'Last Name',
-        }
-        widgets = {
-            'email': forms.TextInput(attrs={'class': 'form-input'}),
-            'first_name': forms.TextInput(attrs={'class': 'form-input'}),
-            'last_name': forms.TextInput(attrs={'class': 'form-input'}),
-        }
 
     def clean_email(self):
         """
@@ -59,10 +52,59 @@ class RegisterUserForm(UserCreationForm):
         Raises:
             forms.ValidationError: If the email is already registered.
         """
+        # Get the email from the cleaned data
         email = self.cleaned_data['email']
+        # Check if the email already exists in the database
         if get_user_model().objects.filter(email=email).exists():
-            raise forms.ValidationError("Email already registered")
+            # If the email is already registered, raise a ValidationError
+            raise forms.ValidationError(_("Email already registered"))
+        # Otherwise, return the cleaned email
         return email
+
+    def clean(self):
+        """
+        Cleans the form data.
+        This method is responsible for validating the form data. It checks if the passwords match. If the passwords do
+            not match, it raises a `forms.ValidationError` with the message "Passwords do not match". Otherwise, it returns
+            the cleaned data.
+        Returns:
+            dict: The cleaned data.
+        Raises:
+            forms.ValidationError: If the passwords do not match.
+        """
+        # Get the cleaned data
+        cleaned_data = super().clean()
+        # Get the password and confirm password from the cleaned data
+        password = cleaned_data.get('password')
+        confirm_password = cleaned_data.get('confirm_password')
+        # Check if the passwords match
+        if password != confirm_password:
+            # If the passwords do not match, raise a ValidationError
+            raise forms.ValidationError(_("Passwords do not match"))
+        # Otherwise, return the cleaned data
+        return cleaned_data
+
+    def save(self, commit=True):
+        """
+        Saves the user to the database.
+        This method is responsible for saving the user to the database. It sets the email and verification UUID for the
+            user before saving it to the database.
+        Parameters:
+            commit (bool): A boolean value indicating whether to save the user to the database.
+        Returns:
+            User: The user object saved to the database.
+        """
+        # Save the user to the database
+        user = super().save(commit=False)
+        # Set the email and verification UUID for the user
+        user.email = self.cleaned_data['email']
+        # Generate a verification UUID for the user
+        user.verification_uuid = uuid.uuid4()
+        # If commit is True, save the user to the database
+        if commit:
+            user.save()
+        # Return the user object
+        return user
 
 
 class ProfileUserForm(forms.ModelForm):
@@ -80,14 +122,6 @@ class ProfileUserForm(forms.ModelForm):
         """
         model = get_user_model()
         fields = ('username', 'email', 'first_name', 'last_name')
-        labels = {
-            'first_name': 'First Name',
-            'last_name': 'Last Name',
-        }
-        widgets = {
-            'first_name': forms.TextInput(attrs={'class': 'form-input'}),
-            'last_name': forms.TextInput(attrs={'class': 'form-input'}),
-        }
 
     def clean_email(self):
         """
@@ -102,9 +136,13 @@ class ProfileUserForm(forms.ModelForm):
         Raises:
             forms.ValidationError: If the email is already registered.
         """
+        # Get the email from the cleaned data
         email = self.cleaned_data['email']
+        # Check if the email already exists in the database
         if get_user_model().objects.filter(email=email).exists():
-            raise forms.ValidationError("Email already registered")
+            # If the email is already registered, raise a ValidationError
+            raise forms.ValidationError(_("Email already registered"))
+        # Otherwise, return the cleaned email
         return email
 
 
@@ -125,4 +163,3 @@ class UserPasswordChangeForm(PasswordChangeForm):
         """
         model = get_user_model()
         fields = ('old_password', 'new_password1', 'new_password2')
-

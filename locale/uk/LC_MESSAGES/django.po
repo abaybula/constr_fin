@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-13 11:47+0000\n"
+"POT-Creation-Date: 2024-06-24 09:03+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,139 +21,139 @@ msgstr ""
 "100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
 "(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
 
-#: schedule/forms.py:35
+#: schedule/forms.py:56
 msgid "Other name"
 msgstr "Інша назва"
 
-#: schedule/forms.py:43
+#: schedule/forms.py:74
 msgid "Preparatory works"
 msgstr "Підготовчі роботи"
 
-#: schedule/forms.py:44
+#: schedule/forms.py:75
 msgid "Foundation"
 msgstr "Фундамент"
 
-#: schedule/forms.py:45
+#: schedule/forms.py:76
 msgid "Monolithic works"
 msgstr "Монолітні роботи"
 
-#: schedule/forms.py:46
+#: schedule/forms.py:77
 msgid "Masonry works"
 msgstr "Кладочні роботи"
 
-#: schedule/forms.py:47
+#: schedule/forms.py:78
 msgid "Windows"
 msgstr "Вікна"
 
-#: schedule/forms.py:48
+#: schedule/forms.py:79
 msgid "Roof"
 msgstr "Дах"
 
-#: schedule/forms.py:49
+#: schedule/forms.py:80
 msgid "Doors"
 msgstr "Двері"
 
-#: schedule/forms.py:50
+#: schedule/forms.py:81
 msgid "Decoration"
 msgstr "Оздоблення"
 
-#: schedule/forms.py:51
+#: schedule/forms.py:82
 msgid "Ebbs, eaves, covers"
 msgstr "Відливи, карнизи, покриття"
 
-#: schedule/forms.py:52
+#: schedule/forms.py:83
 msgid "Metal products"
 msgstr "Металеві вироби"
 
-#: schedule/forms.py:53
+#: schedule/forms.py:84
 msgid "Elevators"
 msgstr "Ліфти"
 
-#: schedule/forms.py:54
+#: schedule/forms.py:85
 msgid "Facade, insulation"
 msgstr "Фасад, утеплення"
 
-#: schedule/forms.py:55
+#: schedule/forms.py:86
 msgid "Grounding, lightning protection"
 msgstr "Заземлення, блискавкозахист"
 
-#: schedule/forms.py:56
+#: schedule/forms.py:87
 msgid "Internal power supply"
 msgstr "Внутрішнє електропостачання"
 
-#: schedule/forms.py:57
+#: schedule/forms.py:88
 msgid "Low current networks"
 msgstr "Слабкострумові мережі"
 
-#: schedule/forms.py:58
+#: schedule/forms.py:89
 msgid "Internal sewerage K1"
 msgstr "Внутрішня каналізація К1"
 
-#: schedule/forms.py:59
+#: schedule/forms.py:90
 msgid "Internal sewerage K2"
 msgstr "Внутрішня каналізація К2"
 
-#: schedule/forms.py:60
+#: schedule/forms.py:91
 msgid "Internal water supply B1"
 msgstr "Внутрішнє водопостачання B1"
 
-#: schedule/forms.py:61
+#: schedule/forms.py:92
 msgid "Gas supply, boilers"
 msgstr "Газопостачання, котли"
 
-#: schedule/forms.py:62
+#: schedule/forms.py:93
 msgid "External power supply"
 msgstr "Зовнішнє електропостачання"
 
-#: schedule/forms.py:63
+#: schedule/forms.py:94
 msgid "External gas supply"
 msgstr "Зовнішнє газопостачання"
 
-#: schedule/forms.py:64
+#: schedule/forms.py:95
 msgid "External sewerage K1"
 msgstr "Зовнішня каналізація К1"
 
-#: schedule/forms.py:65
+#: schedule/forms.py:96
 msgid "External sewerage K2"
 msgstr "Зовнішня каналізація К2"
 
-#: schedule/forms.py:66
+#: schedule/forms.py:97
 msgid "External water supply B1"
 msgstr "Зовнішнє водопостачання B1"
 
-#: schedule/forms.py:67
+#: schedule/forms.py:98
 msgid "Improvement"
 msgstr "Благоустрій"
 
-#: schedule/forms.py:68
+#: schedule/forms.py:99
 msgid "Total expenditures"
 msgstr "Загальновиробничі витрати"
 
-#: schedule/forms.py:69
+#: schedule/forms.py:100
 msgid "Other"
 msgstr "Інше"
 
-#: schedule/forms.py:93
+#: schedule/forms.py:147
 msgid "Position number must be unique for this construction."
 msgstr "Номер позиції має бути унікальним для цього будівництва."
 
-#: schedule/forms.py:96
+#: schedule/forms.py:151
 msgid "Please provide a value for other name"
 msgstr "Будь ласка, вкажіть значення для іншої назви"
 
-#: schedule/forms.py:99
+#: schedule/forms.py:155
 msgid "Position name must be unique for this construction."
 msgstr "Назва позиції має бути унікальною для цього будівництва."
 
-#: schedule/forms.py:104
+#: schedule/forms.py:161
 msgid "End date cannot be earlier than start date."
 msgstr "Дата закінчення не може бути раніше дати початку."
 
-#: schedule/views.py:34 schedule/views.py:54 schedule/views.py:67
-#: schedule/views.py:92 schedule/views.py:107 schedule/views.py:133
-#: schedule/views.py:146 schedule/views.py:162 schedule/views.py:190
-#: schedule/views.py:204 schedule/views.py:230 schedule/views.py:246
-#: schedule/views.py:273 schedule/views.py:287 schedule/views.py:303
+#: schedule/views.py:72 schedule/views.py:113 schedule/views.py:142
+#: schedule/views.py:197 schedule/views.py:229 schedule/views.py:287
+#: schedule/views.py:316 schedule/views.py:358 schedule/views.py:416
+#: schedule/views.py:444 schedule/views.py:501 schedule/views.py:532
+#: schedule/views.py:589 schedule/views.py:618 schedule/views.py:660
 msgid "<h1>You don't have permission to view this page</h1>"
 msgstr "<h1>Ви не маєте дозволу на перегляд цієї сторінки</h1>"
 
@@ -348,6 +348,83 @@ msgstr "Завантажити"
 msgid "No schedule available."
 msgstr "Немає доступного графіка."
 
+#: users/forms.py:57 users/forms.py:110
+msgid "Email already registered"
+msgstr "Електронна пошта вже зареєстрована"
+
+#: users/forms.py:66
+msgid "Passwords do not match"
+msgstr "Паролі не збігаються"
+
+#: users/templates/users/activation_invalid.html:5
+msgid "Email Verification Failed"
+msgstr "Помилка підтвердження електронної пошти"
+
+#: users/templates/users/activation_invalid.html:6
+msgid "We're sorry, but the email verification failed. Please try again."
+msgstr ""
+"Вибачте, але перевірка електронної пошти не вдалася. Будь ласка спробуйте ще "
+"раз."
+
+#: users/templates/users/activation_invalid.html:7
+msgid "Click here to register again"
+msgstr "Натисніть тут, щоб зареєструватися знову"
+
+#: users/templates/users/activation_success.html:5
+msgid "Email Verification Successful"
+msgstr "Реєстрація успішна"
+
+#: users/templates/users/activation_success.html:6
+msgid "Thank you,"
+msgstr "Дякуємо,"
+
+#: users/templates/users/activation_success.html:6
+msgid "Your email has been successfully verified."
+msgstr "Вашу електронну пошту успішно підтверджено."
+
+#: users/templates/users/activation_success.html:7
+#: users/templates/users/register_done.html:8
+#: users/templates/users/resend_email_done.html:7
+msgid "Click here to login"
+msgstr "повернутися до входу"
+
+#: users/templates/users/active_email.html:3
+msgid "Hi"
+msgstr "Вітаємо"
+
+#: users/templates/users/active_email.html:5
+msgid ""
+"Please click on the link below to verify your email and activate your "
+"account:"
+msgstr ""
+"Будь ласка, натисніть на посилання нижче, щоб підтвердити свою електронну "
+"пошту та активувати свій обліковий запис:"
+
+#: users/templates/users/active_email.html:9
+msgid "If you did not make this request, please ignore this email."
+msgstr "Якщо ви не робили цього запиту, проігноруйте цей лист."
+
+#: users/templates/users/confirm_email.html:5
+msgid "Email confirmation"
+msgstr "Підтвердження електронної пошти"
+
+#: users/templates/users/confirm_email.html:6
+#: users/templates/users/register_done.html:6
+msgid "Please check your email to verify your account."
+msgstr ""
+"Будь ласка, перевірте свою електронну пошту, щоб підтвердити свій обліковий "
+"запис."
+
+#: users/templates/users/confirm_email.html:7
+#: users/templates/users/register_done.html:7
+msgid "If you did not receive an email, you can "
+msgstr "Якщо ви не отримали електронного листа, ви можете"
+
+#: users/templates/users/confirm_email.html:7
+#: users/templates/users/register_done.html:7
+msgid "request a new email"
+msgstr "отримати новий лист"
+
 #: users/templates/users/login.html:15
 msgid "Forgot password?"
 msgstr "Забули пароль?"
@@ -357,8 +434,7 @@ msgid "Password change successful"
 msgstr "Зміна пароля успішна"
 
 #: users/templates/users/password_change_done.html:6
-#: users/templates/users/password_reset_complete.html:6
-msgid "You changed your password"
+msgid "You changed your password "
 msgstr "Ви змінили свій пароль"
 
 #: users/templates/users/password_change_done.html:6
@@ -379,12 +455,22 @@ msgid "Password is changed"
 msgstr "Пароль змінено"
 
 #: users/templates/users/password_reset_complete.html:6
+msgid "You changed your password"
+msgstr "Ви змінили свій пароль"
+
+#: users/templates/users/password_reset_complete.html:6
 msgid "back to login"
 msgstr "повернутися до входу"
 
 #: users/templates/users/password_reset_confirm.html:5
 msgid "New password"
 msgstr "Новий пароль"
+
+#: users/templates/users/password_reset_done.html:5
+#: users/templates/users/password_reset_form.html:5
+#: users/templates/users/password_reset_form.html:13
+msgid "Password reset"
+msgstr "Скидання пароля"
 
 #: users/templates/users/password_reset_done.html:6
 msgid ""
@@ -423,11 +509,6 @@ msgstr "Ваше ім'я користувача, якщо ви його забу
 msgid "Thanks for using site!"
 msgstr "Дякуємо, що користуєтеся сайтом!"
 
-#: users/templates/users/password_reset_form.html:5
-#: users/templates/users/password_reset_form.html:13
-msgid "Password reset"
-msgstr "Скидання пароля"
-
 #: users/templates/users/profile.html:5
 msgid "Profile"
 msgstr "Профіль"
@@ -445,13 +526,20 @@ msgid "Log in"
 msgstr "Увійти"
 
 #: users/templates/users/register_done.html:5
-msgid "Registration successful"
+msgid "Registration Successful"
 msgstr "Реєстрація успішна"
 
 #: users/templates/users/register_done.html:6
-msgid "You can now "
-msgstr "Тепер ви можете "
+msgid "Thank you for registering, "
+msgstr "Дякуємо, що користуєтеся сайтом!"
 
-#: users/templates/users/register_done.html:6
-msgid "log in"
-msgstr "увійти"
+#: users/templates/users/resend_email_done.html:5
+msgid "Email Verification Link Resent"
+msgstr "Посилання для підтвердження електронної пошти відправлено повторно"
+
+#: users/templates/users/resend_email_done.html:6
+msgid ""
+"We have resent the email verification link to your email address. Please "
+"check your email and click on the link to verify your email."
+msgstr "Ми відправили посилання для підтвердження електронної пошти на вашу адресу електронної пошти. Будь ласка, перевірте свою електронну пошту та натисніть на посилання для підтвердження електронної пошти."
+

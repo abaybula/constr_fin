@@ -12,3 +12,5 @@ RUN pip install -r /temp/requirements.txt
 RUN adduser --disabled-password constr-user
 
 USER constr-user
+
+ENV DJANGO_SETTINGS_MODULE=constr_fin.settings

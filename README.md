@@ -3,14 +3,6 @@
 This project is a project for tracking construction financing. It allows users to add, view, and track construction
 positions and their costs over time using a financing schedule.
 
-Positions list page example:
-
-![positions_list](https://github.com/abaybula/constr_fin/assets/6695355/97ea17b4-bef9-4928-a3c3-4e79153361fa)
-
-Financing Schedule page example:
-
-![schedule](https://github.com/abaybula/constr_fin/assets/6695355/777f192a-52e2-4058-972c-81331d07c9d7)
-
 ## Requirements
 
 - Python 3.12
