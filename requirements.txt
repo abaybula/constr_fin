@@ -6,7 +6,7 @@ cycler==0.12.1
 Django==5.0.6
 django-filter==24.2
 django-guardian==2.4.0
-djangorestframework==3.15.1
+djangorestframework==3.15.2
 drf-yasg==1.21.7
 fonttools==4.52.4
 idna==3.7
@@ -24,4 +24,4 @@ pytz==2024.1
 six==1.16.0
 sqlparse==0.5.0
 tzdata==2024.1
-urllib3==2.2.1
+urllib3==2.2.2
