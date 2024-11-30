@@ -5,16 +5,15 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - ~/PycharmProjects/constr_fin:/constr_fin
+      - ~/Programming/constr_fin:/constr_fin
     environment:
       - DB_HOST=database
       - DB_NAME=dbname
       - DB_USER=dbuser
       - DB_PASS=pass
-
+      - PYTHONPATH=/constr_fin
     command: >
       sh -c "python manage.py runserver 0.0.0.0:8000"
-
     depends_on:
       - database
 
@@ -24,3 +23,8 @@ services:
       - POSTGRES_DB=dbname
       - POSTGRES_USER=dbuser
       - POSTGRES_PASSWORD=pass
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

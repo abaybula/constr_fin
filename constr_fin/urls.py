@@ -31,7 +31,7 @@ This module contains the URL patterns for the constr_fin app.
 schema_view = get_schema_view(
     openapi.Info(
         title="Django Construction Financing Schedule API",
-        default_version='v0.1.0',
+        default_version='v0.1.2',
         description="API documentation for Django Construction Financing Schedule",
         terms_of_service="https://www.google.com/policies/terms/",
         contact=openapi.Contact(email="abaybula@gmail.com"),

@@ -13,6 +13,7 @@
         <p><img src="data:image/png;base64,{{ schedule_image }}" alt="Schedule"></p>
         <!-- Download PDF button -->
         <form method="get">
+            {% csrf_token %}
             <p>
                 <button type="submit" name="download_pdf" style="width: 20%">{% blocktranslate %}Download{% endblocktranslate %} PDF
                 </button>

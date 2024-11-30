@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-24 09:03+0000\n"
+"POT-Creation-Date: 2024-12-12 20:42+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,139 +21,139 @@ msgstr ""
 "100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
 "(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
 
-#: schedule/forms.py:56
+#: schedule/forms.py:64
 msgid "Other name"
 msgstr "Інша назва"
 
-#: schedule/forms.py:74
+#: schedule/forms.py:82
 msgid "Preparatory works"
 msgstr "Підготовчі роботи"
 
-#: schedule/forms.py:75
+#: schedule/forms.py:83
 msgid "Foundation"
 msgstr "Фундамент"
 
-#: schedule/forms.py:76
+#: schedule/forms.py:84
 msgid "Monolithic works"
 msgstr "Монолітні роботи"
 
-#: schedule/forms.py:77
+#: schedule/forms.py:85
 msgid "Masonry works"
 msgstr "Кладочні роботи"
 
-#: schedule/forms.py:78
+#: schedule/forms.py:86
 msgid "Windows"
 msgstr "Вікна"
 
-#: schedule/forms.py:79
+#: schedule/forms.py:87
 msgid "Roof"
 msgstr "Дах"
 
-#: schedule/forms.py:80
+#: schedule/forms.py:88
 msgid "Doors"
 msgstr "Двері"
 
-#: schedule/forms.py:81
+#: schedule/forms.py:89
 msgid "Decoration"
 msgstr "Оздоблення"
 
-#: schedule/forms.py:82
+#: schedule/forms.py:90
 msgid "Ebbs, eaves, covers"
 msgstr "Відливи, карнизи, покриття"
 
-#: schedule/forms.py:83
+#: schedule/forms.py:91
 msgid "Metal products"
 msgstr "Металеві вироби"
 
-#: schedule/forms.py:84
+#: schedule/forms.py:92
 msgid "Elevators"
 msgstr "Ліфти"
 
-#: schedule/forms.py:85
+#: schedule/forms.py:93
 msgid "Facade, insulation"
 msgstr "Фасад, утеплення"
 
-#: schedule/forms.py:86
+#: schedule/forms.py:94
 msgid "Grounding, lightning protection"
 msgstr "Заземлення, блискавкозахист"
 
-#: schedule/forms.py:87
+#: schedule/forms.py:95
 msgid "Internal power supply"
 msgstr "Внутрішнє електропостачання"
 
-#: schedule/forms.py:88
+#: schedule/forms.py:96
 msgid "Low current networks"
 msgstr "Слабкострумові мережі"
 
-#: schedule/forms.py:89
+#: schedule/forms.py:97
 msgid "Internal sewerage K1"
 msgstr "Внутрішня каналізація К1"
 
-#: schedule/forms.py:90
+#: schedule/forms.py:98
 msgid "Internal sewerage K2"
 msgstr "Внутрішня каналізація К2"
 
-#: schedule/forms.py:91
+#: schedule/forms.py:99
 msgid "Internal water supply B1"
 msgstr "Внутрішнє водопостачання B1"
 
-#: schedule/forms.py:92
+#: schedule/forms.py:100
 msgid "Gas supply, boilers"
 msgstr "Газопостачання, котли"
 
-#: schedule/forms.py:93
+#: schedule/forms.py:101
 msgid "External power supply"
 msgstr "Зовнішнє електропостачання"
 
-#: schedule/forms.py:94
+#: schedule/forms.py:102
 msgid "External gas supply"
 msgstr "Зовнішнє газопостачання"
 
-#: schedule/forms.py:95
+#: schedule/forms.py:103
 msgid "External sewerage K1"
 msgstr "Зовнішня каналізація К1"
 
-#: schedule/forms.py:96
+#: schedule/forms.py:104
 msgid "External sewerage K2"
 msgstr "Зовнішня каналізація К2"
 
-#: schedule/forms.py:97
+#: schedule/forms.py:105
 msgid "External water supply B1"
 msgstr "Зовнішнє водопостачання B1"
 
-#: schedule/forms.py:98
+#: schedule/forms.py:106
 msgid "Improvement"
 msgstr "Благоустрій"
 
-#: schedule/forms.py:99
+#: schedule/forms.py:107
 msgid "Total expenditures"
 msgstr "Загальновиробничі витрати"
 
-#: schedule/forms.py:100
+#: schedule/forms.py:108
 msgid "Other"
 msgstr "Інше"
 
-#: schedule/forms.py:147
+#: schedule/forms.py:155
 msgid "Position number must be unique for this construction."
 msgstr "Номер позиції має бути унікальним для цього будівництва."
 
-#: schedule/forms.py:151
+#: schedule/forms.py:159
 msgid "Please provide a value for other name"
 msgstr "Будь ласка, вкажіть значення для іншої назви"
 
-#: schedule/forms.py:155
+#: schedule/forms.py:163
 msgid "Position name must be unique for this construction."
 msgstr "Назва позиції має бути унікальною для цього будівництва."
 
-#: schedule/forms.py:161
+#: schedule/forms.py:169
 msgid "End date cannot be earlier than start date."
 msgstr "Дата закінчення не може бути раніше дати початку."
 
-#: schedule/views.py:72 schedule/views.py:113 schedule/views.py:142
-#: schedule/views.py:197 schedule/views.py:229 schedule/views.py:287
-#: schedule/views.py:316 schedule/views.py:358 schedule/views.py:416
-#: schedule/views.py:444 schedule/views.py:501 schedule/views.py:532
-#: schedule/views.py:589 schedule/views.py:618 schedule/views.py:660
+#: schedule/views.py:73 schedule/views.py:114 schedule/views.py:143
+#: schedule/views.py:198 schedule/views.py:230 schedule/views.py:288
+#: schedule/views.py:317 schedule/views.py:359 schedule/views.py:417
+#: schedule/views.py:445 schedule/views.py:502 schedule/views.py:533
+#: schedule/views.py:590 schedule/views.py:619 schedule/views.py:661
 msgid "<h1>You don't have permission to view this page</h1>"
 msgstr "<h1>Ви не маєте дозволу на перегляд цієї сторінки</h1>"
 
@@ -161,16 +161,16 @@ msgstr "<h1>Ви не маєте дозволу на перегляд цієї �
 msgid "Add construction"
 msgstr "Додати будівництво"
 
-#: templates/add_construction.html:16 templates/add_position.html:40
-#: templates/edit_construction.html:14 templates/edit_position.html:39
+#: templates/add_construction.html:19 templates/add_position.html:43
+#: templates/edit_construction.html:17 templates/edit_position.html:42
 #: users/templates/users/password_reset_confirm.html:13
 #: users/templates/users/profile.html:13
 msgid "Save"
 msgstr "Зберегти"
 
-#: templates/add_construction.html:17 templates/add_position.html:42
-#: templates/delete_construction.html:15 templates/delete_position.html:15
-#: templates/edit_construction.html:15 templates/edit_position.html:41
+#: templates/add_construction.html:22 templates/add_position.html:46
+#: templates/delete_construction.html:19 templates/delete_position.html:19
+#: templates/edit_construction.html:19 templates/edit_position.html:45
 msgid "Cancel"
 msgstr "Скасувати"
 
@@ -198,36 +198,32 @@ msgstr "Дата закінчення"
 msgid "Cost"
 msgstr "Вартість"
 
-#: templates/base.html:12 templates/base.html:21
-msgid "Construction Financing Schedule"
-msgstr "Графік фінансування будівництва"
+#: templates/base.html:12
+msgid "Alen's site"
+msgstr ""
 
-#: templates/base.html:32
-msgid "Change"
-msgstr "Змінити"
-
-#: templates/base.html:38
+#: templates/base.html:18
 msgid "Home page"
 msgstr "Домашня сторінка"
 
-#: templates/base.html:40
-msgid "Constructions"
-msgstr "Будівництва"
+#: templates/base.html:20 templates/index.html:12
+msgid "Construction Financing Schedules"
+msgstr "Графіки фінансування будівництва"
 
-#: templates/base.html:41
+#: templates/base.html:21
 msgid "User:"
 msgstr "Користувач: "
 
-#: templates/base.html:44
+#: templates/base.html:23
 msgid "Logout"
 msgstr "Вийти"
 
-#: templates/base.html:47 users/templates/users/login.html:5
+#: templates/base.html:30 users/templates/users/login.html:5
 #: users/templates/users/login.html:13
 msgid "Login"
 msgstr "Увійти"
 
-#: templates/base.html:48 users/templates/users/register.html:14
+#: templates/base.html:31 users/templates/users/register.html:14
 msgid "Register"
 msgstr "Зареєструватися"
 
@@ -239,8 +235,8 @@ msgstr "Список будівництв"
 msgid "Edit"
 msgstr "Редагувати"
 
-#: templates/constructions_list.html:13 templates/delete_construction.html:14
-#: templates/delete_position.html:14 templates/positions_list.html:37
+#: templates/constructions_list.html:13 templates/delete_construction.html:17
+#: templates/delete_position.html:17 templates/positions_list.html:37
 msgid "Delete"
 msgstr "Видалити"
 
@@ -269,24 +265,26 @@ msgid "Edit position"
 msgstr "Редагувати позицію"
 
 #: templates/index.html:5
-msgid "Hello! My name is Alen."
-msgstr "Привіт! Мене звати Ален."
+msgid "Welcome to Alen's site!"
+msgstr ""
 
 #: templates/index.html:7
 msgid ""
-"I am a qualified civil engineer with many years of experience in the "
-"construction of industrial and public buildings and structures. Recently, I "
-"have been enthusiastically learning the Python programming language and the "
-"Django framework. This project is my educational endeavor, my first attempt "
-"to create something that I hope will be useful for others. I plan to "
-"continue developing, modifying, and enhancing it with new features."
+"Hello! My name is Alen. "
+"I am a qualified civil engineer with many years of "
+"experience in the construction of industrial and public buildings and "
+"structures. This site reflects my efforts to learn the Python programming "
+"language and the Django framework. This project is exclusively educational "
+"and does not pretend to be perfect. "
+"Thank you for visiting my site."
 msgstr ""
-"Я кваліфікований інженер-будівельник з багаторічним досвідом у будівництві "
-"промислових та громадських будівель і споруд. Нещодавно я з ентузіазмом "
-"почав вивчати мову програмування Python та фреймворк Django. Цей проект є "
-"моїм навчальним досвідом, першою спробою створити щось, що, як я сподіваюся, "
-"буде корисним для інших. Я планую продовжувати розвивати, модифікувати та "
-"покращувати його новим функціоналом."
+"Привіт! Мене звати Ален. "
+"Я кваліфікований інженер-будівельник з багаторічним "
+"досвідом у будівництві промислових та громадських будівель і споруд. Цей сайт "
+"відображає мої намагання по вивченню мови програмування Python та фреймворка "
+"Django. Цей проєкт є виключно навчальним і не претендує на досконалість і "
+"довершеність. "
+"Дякую що відвідали мій сайт."
 
 #: templates/index.html:9
 msgid ""
@@ -316,10 +314,6 @@ msgstr " тут"
 msgid "Link to the project on GitHub: "
 msgstr "Посилання на проект на GitHub: "
 
-#: templates/index.html:12
-msgid "Construction Financing Schedules"
-msgstr "Графіки фінансування будівництва"
-
 #: templates/index.html:13
 msgid "I would appreciate any feedback: "
 msgstr "Буду вдячний за будь-який відгук:"
@@ -340,19 +334,19 @@ msgstr "Графік"
 msgid "Total cost:"
 msgstr "Загальна вартість:"
 
-#: templates/schedule.html:17
+#: templates/schedule.html:18
 msgid "Download"
 msgstr "Завантажити"
 
-#: templates/schedule.html:22
+#: templates/schedule.html:23
 msgid "No schedule available."
 msgstr "Немає доступного графіка."
 
-#: users/forms.py:57 users/forms.py:110
+#: users/forms.py:60 users/forms.py:144
 msgid "Email already registered"
 msgstr "Електронна пошта вже зареєстрована"
 
-#: users/forms.py:66
+#: users/forms.py:83
 msgid "Passwords do not match"
 msgstr "Паролі не збігаються"
 
@@ -541,5 +535,19 @@ msgstr "Посилання для підтвердження електронн�
 msgid ""
 "We have resent the email verification link to your email address. Please "
 "check your email and click on the link to verify your email."
-msgstr "Ми відправили посилання для підтвердження електронної пошти на вашу адресу електронної пошти. Будь ласка, перевірте свою електронну пошту та натисніть на посилання для підтвердження електронної пошти."
+msgstr ""
+"Ми відправили посилання для підтвердження електронної пошти на вашу адресу "
+"електронної пошти. Будь ласка, перевірте свою електронну пошту та натисніть "
+"на посилання для підтвердження електронної пошти."
 
+#~ msgid "Construction Financing Schedule"
+#~ msgstr "Графік фінансування будівництва"
+
+#~ msgid "Change"
+#~ msgstr "Змінити"
+
+#~ msgid "Constructions"
+#~ msgstr "Будівництва"
+
+#~ msgid "Hello! My name is Alen."
+#~ msgstr "Привіт! Мене звати Ален."

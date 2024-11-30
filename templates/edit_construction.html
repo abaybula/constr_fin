@@ -11,7 +11,11 @@
             </div>
         {% endif %}
         {{ form.as_p }}
-        <input type="submit" style="width: 20%" value="{% blocktranslate %}Save{% endblocktranslate %}">
-        <a href="{% url 'constructions_list' user.id %}">{% blocktranslate %}Cancel{% endblocktranslate %}</a>
+        <a href="#"
+           style="color: blue; text-decoration: underline; cursor: pointer;"
+           onclick="event.preventDefault(); this.closest('form').submit();">
+            {% blocktranslate %}Save{% endblocktranslate %}
+        </a>
+        <a href="{% url 'constructions_list' user.id %}" style="margin-left: 10px;">{% blocktranslate %}Cancel{% endblocktranslate %}</a>
     </form>
 {% endblock content %}

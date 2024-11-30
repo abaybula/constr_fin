@@ -37,7 +37,11 @@
             </tr>
             <tr>
                 <td>
-                    <button type="submit">{% blocktranslate %}Save{% endblocktranslate %}</button>
+                    <a href="#"
+                       style="color: blue; text-decoration: underline; cursor: pointer;"
+                       onclick="event.preventDefault(); this.closest('form').submit();">
+                        {% blocktranslate %}Save{% endblocktranslate %}
+                    </a>
                 </td>
                 <td><a href="{% url 'positions_list' user.id construction_id %}">{% blocktranslate %}Cancel{% endblocktranslate %}</a>
                 </td>

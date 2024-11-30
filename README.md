@@ -5,9 +5,9 @@ positions and their costs over time using a financing schedule.
 
 ## Requirements
 
-- Python 3.12
-- Django 5.0.6
-- PostgreSQL 16.2
+- Python
+- Django
+- PostgreSQL
 - Docker
 
 ## Installation
@@ -22,20 +22,20 @@ positions and their costs over time using a financing schedule.
 2. Deployment with Docker:
 
     ```bash
-    docker-compose up --build
+    docker compose up --build
     ```
 
 3. To create translation files, run and compile translation files:
 
     ```bash
-    docker-compose run --rm web-app sh -c "django-admin makemessages -l uk"
-    docker-compose run --rm web-app sh -c "django-admin compilemessages"
+    docker compose run --rm web-app sh -c "django-admin makemessages -l uk"
+    docker compose run --rm web-app sh -c "django-admin compilemessages"
     ```
 
 4. Collect static files:
 
     ```bash
-    docker-compose run --rm web-app sh -c "./manage.py collectstatic"
+    docker compose run --rm web-app sh -c "./manage.py collectstatic"
     ```
 
 5. Set up the database in `settings.py`:
@@ -56,19 +56,19 @@ positions and their costs over time using a financing schedule.
 6. Run database migrations:
 
     ```bash
-    docker-compose run --rm web-app sh -c "./manage.py migrate"
+    docker compose run --rm web-app sh -c "./manage.py migrate"
     ```
 
 7. Create a superuser:
 
     ```bash
-    docker-compose run --rm web-app sh -c "./manage.py createsuperuser"
+    docker compose run --rm web-app sh -c "./manage.py createsuperuser"
     ```
 
 8. Run the development server:
 
     ```bash
-    docker-compose up
+    docker compose up
     ```
 
 ## Usage

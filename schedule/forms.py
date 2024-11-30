@@ -46,14 +46,14 @@ class ConstructionForm(forms.ModelForm):
             Construction: The saved construction object.
         """
         # Create a new construction object
-        position = super().save(commit=False)
+        construction = super().save(commit=False)
         # Set the user attribute of the construction object
-        position.user = self.user
+        construction.user = self.user
         # If commit is True, save the changes to the database
         if commit:
-            position.save()
+            construction.save()
         # Return the saved construction object
-        return position
+        return construction
 
 
 class PositionForm(forms.ModelForm):

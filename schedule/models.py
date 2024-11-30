@@ -10,7 +10,7 @@ class Construction(models.Model):
         user (ForeignKey): The user who owns this construction.
     """
     # The name of the construction
-    construction = models.CharField(max_length=255, unique=True)
+    construction = models.CharField(max_length=255)
 
     # The user who owns this construction
     user = models.ForeignKey(User, on_delete=models.CASCADE)

@@ -11,7 +11,11 @@
                 {{ form.non_field_errors }}
             </div>
         {% endif %}
-        <button type="submit" style="width: 20%">{% blocktranslate %}Delete{% endblocktranslate %}</button>
-        <a href="{% url 'positions_list' user.id construction_id %}">{% blocktranslate %}Cancel{% endblocktranslate %}</a>
+        <a href="#"
+           style="color: blue; text-decoration: underline; cursor: pointer;"
+           onclick="event.preventDefault(); this.closest('form').submit();">
+            {% blocktranslate %}Delete{% endblocktranslate %}
+        </a>
+        <a href="{% url 'positions_list' user.id construction_id %}" style="margin-left: 10px;">{% blocktranslate %}Cancel{% endblocktranslate %}</a>
     </form>
 {% endblock content %}

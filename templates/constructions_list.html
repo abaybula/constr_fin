@@ -10,7 +10,7 @@
                     <h5><a href="{% url 'positions_list' user.id construction.id %}">{{ construction }}</a></h5>
                 </td>
                 <td><a href="{% url 'edit_construction' user.id construction.id %}">{% blocktranslate %}Edit{% endblocktranslate %}</a>
-                    <a href="{% url 'delete_construction' user.id construction.id %}">{% blocktranslate %}Delete{% endblocktranslate %}</a>
+                    <a href="{% url 'delete_construction' user.id construction.id %}" style="margin-left: 10px;">{% blocktranslate %}Delete{% endblocktranslate %}</a>
                 </td>
             </tr>
         {% endfor %}
