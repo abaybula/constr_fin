@@ -5,7 +5,7 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - ~/Programming/constr_fin:/constr_fin
+      - ~/constr_fin:/constr_fin
     environment:
       - DB_HOST=database
       - DB_NAME=dbname
